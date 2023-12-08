@@ -1,0 +1,40 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model Recipe {
+  id            String      @default(cuid()) @id
+  name          String
+  ingredients   Ingredient[]
+  steps         String[]
+  published     Boolean     @default(false)
+  author        User?       @relation(fields: [authorId], references: [id])
+  authorId      String?
+}
+
+model User {
+  id            String      @default(cuid()) @id
+  name          String
+  email         String      @unique
+  password      String
+  createdAt     DateTime    @default(now()) @map(name: "created_at")
+  recipes       Recipe[]
+  @@map(name: "users")
+}
+
+model Ingredient {
+  id            String  @default(cuid()) @id
+  name          String
+  measurement   String
+  quantity      Int
+  recipe        Recipe   @relation(fields: [recipeId], references: [id])
+  recipeId      String   
+}
