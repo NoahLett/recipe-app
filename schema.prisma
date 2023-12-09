@@ -15,7 +15,7 @@ model Recipe {
   name          String
   ingredients   Ingredient[]
   steps         String[]
-  image_src     String
+  image_src     String?
   published     Boolean     @default(false)
   author        User?       @relation(fields: [authorId], references: [id])
   authorId      String?
