@@ -1,17 +1,6 @@
 import prisma from '@/lib/prisma'
 import Card from './components/Card';
-
-export async function getRecipes() {
-  const recipes = await prisma.recipe.findMany({
-    where: {published: true},
-    include: {
-      author: {
-        select: {name: true}
-      }
-    }
-  });
-  return recipes;
-}
+import getRecipes from '@/lib/getRecipes';
 
 export default async function Home() {
   const recipes = await getRecipes();
