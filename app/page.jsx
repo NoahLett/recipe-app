@@ -1,7 +1,7 @@
 import prisma from '@/lib/prisma'
 import Card from './components/Card';
 
-async function getRecipes() {
+export async function getRecipes() {
   const recipes = await prisma.recipe.findMany({
     where: {published: true},
     include: {
