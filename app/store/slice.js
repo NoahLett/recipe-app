@@ -1,30 +1,37 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: 0,
-}
+  shoppingList: [], 
+};
 
-export const counterSlice = createSlice({
-  name: 'counter',
+const shoppingListSlice = createSlice({
+  name: 'shoppingList',
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1
+    addIngredient: (state, action) => {
+      const { ingredient } = action.payload;
+      // Check if the ingredient already exists in the shopping list
+      const existingIngredient = state.shoppingList.find(
+        (item) => item.name === ingredient.name
+      );
+      if (!existingIngredient) {
+        state.shoppingList.push(ingredient); // Add the ingredient if it doesn't exist
+      }
     },
-    decrement: (state) => {
-      state.value -= 1
+    removeIngredient: (state, action) => {
+      const { ingredientName } = action.payload;
+      // Filter out the ingredient by name
+      state.shoppingList = state.shoppingList.filter(
+        (item) => item.name !== ingredientName
+      );
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    clearShoppingList: (state) => {
+      state.shoppingList = []; // Clear the entire shopping list
     },
   },
-})
+});
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { addIngredient, removeIngredient, clearShoppingList } =
+  shoppingListSlice.actions;
 
-export default counterSlice.reducer
+export default shoppingListSlice.reducer;
