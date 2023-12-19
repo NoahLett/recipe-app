@@ -10,12 +10,15 @@ const shoppingListSlice = createSlice({
   reducers: {
     addIngredient: (state, action) => {
       const { ingredient } = action.payload;
-      // Check if the ingredient already exists in the shopping list
-      const existingIngredient = state.shoppingList.find(
-        (item) => item.name === ingredient.name
+      const existingIngredientIndex = state.shoppingList.findIndex(
+        (item) => item.name === ingredient.name && item.measurement === ingredient.measurement
       );
-      if (!existingIngredient) {
-        state.shoppingList.push(ingredient); // Add the ingredient if it doesn't exist
+      if (existingIngredientIndex !== -1) {
+        // Increment quantity if name and measurement match
+        state.shoppingList[existingIngredientIndex].quantity += ingredient.quantity;
+      } else {
+        // Add the ingredient if it doesn't exist
+        state.shoppingList.push(ingredient);
       }
     },
     removeIngredient: (state, action) => {
