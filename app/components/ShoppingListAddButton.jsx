@@ -2,6 +2,7 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addIngredient } from '../store/slice';
+import { useEffect } from 'react';
 
 const ShoppingListAddButton = ({ ingredients }) => {
   const dispatch = useDispatch();
@@ -11,8 +12,11 @@ const ShoppingListAddButton = ({ ingredients }) => {
     ingredients.forEach((ingredient) => {
       dispatch(addIngredient({ ingredient }));
     });
-    console.log('Current Shopping List:', shoppingList);
   };
+
+  useEffect(() => {
+    console.log('Current Shopping List:', shoppingList);
+  }, [shoppingList]);
 
   return (
     <button onClick={handleAddToShoppingList}>Add All to Shopping List</button>
