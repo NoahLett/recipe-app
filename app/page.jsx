@@ -6,7 +6,6 @@ export default async function Home() {
   const recipes = await getRecipes();
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Let&apos;s Get Cooking!</h1>
       {
         recipes.map((recipe) => {
           return (

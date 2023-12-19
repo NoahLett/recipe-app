@@ -35,7 +35,7 @@ model Ingredient {
   id            String  @default(cuid()) @id
   name          String
   measurement   String
-  quantity      Int
+  quantity      String
   recipe        Recipe   @relation(fields: [recipeId], references: [id])
   recipeId      String   
 }
