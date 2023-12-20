@@ -14,8 +14,11 @@ const shoppingListSlice = createSlice({
         (item) => item.name === ingredient.name && item.measurement === ingredient.measurement
       );
       if (existingIngredientIndex !== -1) {
+        // Convert quantities to numbers before addition
+        const existingQuantity = parseFloat(state.shoppingList[existingIngredientIndex].quantity);
+        const newQuantity = parseFloat(ingredient.quantity);
         // Increment quantity if name and measurement match
-        state.shoppingList[existingIngredientIndex].quantity += ingredient.quantity;
+        state.shoppingList[existingIngredientIndex].quantity = (existingQuantity + newQuantity).toString();
       } else {
         // Add the ingredient if it doesn't exist
         state.shoppingList.push(ingredient);
