@@ -1,11 +1,12 @@
-import React from 'react'
+import IngredientList from "../components/ShoppingList"
 
-const ShoppingList = () => {
+export const ShoppingListPage = () => {
   return (
     <div>
-      <h1>ShoppingList</h1>
+      <h1>Shopping List</h1>
+      <IngredientList />
     </div>
   )
 }
 
-export default ShoppingList
+export default ShoppingListPage

@@ -1,5 +1,6 @@
 import getRecipe from "@/lib/getRecipe";
 import ShoppingListAddButton from "@/app/components/ShoppingListAddButton";
+import Link from "next/link";
 
   export default async function Page({ params }) {
 
@@ -8,6 +9,7 @@ import ShoppingListAddButton from "@/app/components/ShoppingListAddButton";
 
     return (
       <div className="max-w-2xl mx-auto mt-8 p-6 bg-white rounded-md shadow-lg">
+        <Link href="/shoppingList">Shopping List</Link>
       <h1 className="text-3xl font-bold mb-4 text-slate-600">{recipe.name}</h1>
       <ShoppingListAddButton ingredients={recipe.ingredients} />
       <div className="grid grid-cols-2 gap-4">
