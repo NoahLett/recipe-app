@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const ShoppingListItem = () => {
+export const ShoppingListItem = (ingredient) => {
   return (
-    <div>ShoppingListItem</div>
+    <li>
+        
+    </li>
   )
 }
