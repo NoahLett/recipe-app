@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
+import ShoppingListItem from './ShoppingListItem';
 
 const IngredientList = () => {
   const shoppingListObj = useSelector(state => state.shoppingList);
@@ -12,11 +13,7 @@ const IngredientList = () => {
     <div>
       <ul>
         {shoppingList.map((ingredient, index) => (
-          <li key={index}>
-            <p>Name: {ingredient.name}</p>
-            <p>Measurement: {ingredient.measurement}</p>
-            <p>Quantity: {ingredient.quantity}</p>
-          </li>
+          <ShoppingListItem key={index} ingredient={ingredient} />
         ))}
       </ul>
     </div>
