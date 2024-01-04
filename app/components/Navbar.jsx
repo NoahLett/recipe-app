@@ -1,4 +1,6 @@
 import Link from "next/link"
+import { FaShoppingCart } from "react-icons/fa";
+import { IoMenu } from "react-icons/io5";
 
 const Navbar = () => {
   return (
@@ -7,8 +9,8 @@ const Navbar = () => {
             <div>
                 <Link className="text-slate-900 no-underline font-bold text-3xl" href='/'>Shopper</Link>
             </div>
-            <div className="absolute bg-white min-h-[60vh] left-0 top-[9%] w-full flex items-center px-5">
-                <ul className="flex md:flex-row flex-col items-center gap-[2vw]">
+            <div className="md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
+                <ul className="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-8">
                     <li>
                         <Link className="hover:text-gray-500" href="">Make a Recipe</Link>
                     </li>
