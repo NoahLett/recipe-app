@@ -1,4 +1,3 @@
-import prisma from '@/lib/prisma'
 import Card from './components/Card';
 import getRecipes from '@/lib/getRecipes';
 
@@ -14,7 +13,8 @@ export default async function Home() {
               id={recipe.id}
               name={recipe.name}
               image_src={recipe.image_src}
-              author={recipe.author.name} 
+              author={recipe.author.name}
+              ingredients={recipe.ingredients} 
             />
           )
         })

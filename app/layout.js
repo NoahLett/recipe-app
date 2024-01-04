@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <StoreProvider>
       <html lang="en">
-        <body className={`${poppins.variable} font-sans`}>{children}</body>
+        <body className={`${poppins.variable} font-sans bg-gradient-to-t from-[#fbc2eb] to-[#a6c1ee]`}>{children}</body>
       </html>
     </StoreProvider>
   )
