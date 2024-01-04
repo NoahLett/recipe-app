@@ -19,7 +19,7 @@ const ShoppingListAddButton = ({ ingredients }) => {
   }, [shoppingList]);
 
   return (
-    <button onClick={handleAddToShoppingList}>Add All to Shopping List</button>
+    <button onClick={handleAddToShoppingList}>Add +</button>
   );
 };
 
