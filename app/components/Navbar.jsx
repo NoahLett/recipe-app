@@ -1,32 +1,55 @@
+'use client'
 import Link from "next/link"
 import { FaShoppingCart } from "react-icons/fa";
-import { IoMenu } from "react-icons/io5";
+import { IoMenu, IoClose } from "react-icons/io5";
+import React, { useState, useEffect } from "react";
 
 const Navbar = () => {
+
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
   return (
-    <header className='bg-white'>
-        <nav className="flex justify-between items-center w-[92%] mx-auto py-2">
-            <div>
-                <Link className="text-slate-900 no-underline font-bold text-3xl" href='/'>Shopper</Link>
-            </div>
-            <div className="md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
-                <ul className="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-8">
-                    <li>
-                        <Link className="hover:text-gray-500" href="">Make a Recipe</Link>
-                    </li>
-                    <li>
-                        <Link className="hover:text-gray-500" href="">Another Link</Link>
-                    </li>
-                    <li>
-                        <Link className="hover:text-gray-500" href="">FAQ</Link>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <Link className="bg-[#a6c1ee] text-white px-5 py-2 hover:bg-[#87acec] rounded-xl" href="/">Sign In</Link>
+    <div>
+        <nav className="bg-slate-100 fixed w-screen">
+            <div className="max-w-7xl mx-auto px-4">
+                <div className="flex items-center justify-between h-16">
+                    <Link href="/" className="text-slate-900 text-3xl font-bold" onClick={closeMobileMenu}>
+                        CooksCabinet
+                    </Link>
+                    <ul className={`md:flex flex-grow items-center justify-end ${click ? 'relative' : 'hidden'}`}>
+                        <li>
+                            <Link href='/' className='text-slate-900 px-3 py-2 rounded-md text-sm font-medium' onClick={closeMobileMenu}>
+                                Home
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href='/' className='text-slate-900 px-3 py-2 rounded-md text-sm font-medium' onClick={closeMobileMenu}>
+                                Make a Recipe
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href='/' className='text-slate-900 px-3 py-2 rounded-md text-sm font-medium' onClick={closeMobileMenu}>
+                                FAQ
+                            </Link>
+                        </li>
+                    </ul>
+                    <div className="flex flex-row">
+                        <div className="flex md:hidden mx-3">
+                            {click ? (
+                                <IoClose className="text-slate-900 cursor-pointer text-3xl" onClick={handleClick} />
+                            ) : (
+                                <IoMenu className="text-slate-900 cursor-pointer text-3xl" onClick={handleClick} />
+                            )}
+                        </div>
+                        <FaShoppingCart className="text-slate-900 cursor-pointer text-3xl me-3" />
+                    </div>
+                </div>
             </div>
         </nav>
-    </header>
+    </div>
   )
 }
 
