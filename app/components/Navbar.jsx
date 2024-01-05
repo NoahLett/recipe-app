@@ -19,7 +19,7 @@ const Navbar = () => {
                     <Link href="/" className="text-slate-900 text-3xl font-bold" onClick={closeMobileMenu}>
                         CooksCabinet
                     </Link>
-                    <ul className={`md:flex flex-grow items-center justify-end ${click ? 'relative' : 'hidden'}`}>
+                    <ul className={`md:flex flex-grow items-center justify-end ${click ? 'absolute' : 'hidden'}`}>
                         <li>
                             <Link href='/' className='text-slate-900 px-3 py-2 rounded-md text-sm font-medium' onClick={closeMobileMenu}>
                                 Home
@@ -27,7 +27,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link href='/' className='text-slate-900 px-3 py-2 rounded-md text-sm font-medium' onClick={closeMobileMenu}>
-                                Make a Recipe
+                                Admin
                             </Link>
                         </li>
                         <li>
@@ -37,14 +37,14 @@ const Navbar = () => {
                         </li>
                     </ul>
                     <div className="flex flex-row">
-                        <div className="flex md:hidden mx-3">
+                        <Link href="/shoppingList"><FaShoppingCart className="text-slate-900 cursor-pointer text-3xl mx-4" /></Link>
+                        <div className="flex md:hidden">
                             {click ? (
                                 <IoClose className="text-slate-900 cursor-pointer text-3xl" onClick={handleClick} />
                             ) : (
                                 <IoMenu className="text-slate-900 cursor-pointer text-3xl" onClick={handleClick} />
                             )}
                         </div>
-                        <FaShoppingCart className="text-slate-900 cursor-pointer text-3xl me-3" />
                     </div>
                 </div>
             </div>
