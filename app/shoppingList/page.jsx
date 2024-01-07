@@ -2,10 +2,10 @@ import IngredientList from "../components/ShoppingList"
 
 export const ShoppingListPage = () => {
   return (
-    <div>
+    <main className="min-h-screen">
       <h1>Shopping List</h1>
       <IngredientList />
-    </div>
+    </main>
   )
 }
 

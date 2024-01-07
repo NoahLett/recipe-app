@@ -12,44 +12,32 @@ const Navbar = () => {
   const closeMobileMenu = () => setClick(false);
 
   return (
-    <div>
-        <nav className="bg-slate-100 fixed w-screen">
-            <div className="max-w-7xl mx-auto px-4">
-                <div className="flex items-center justify-between h-16">
-                    <Link href="/" className="text-slate-900 text-3xl font-bold" onClick={closeMobileMenu}>
-                        CooksCabinet
-                    </Link>
-                    <ul className={`md:flex flex-grow items-center justify-end ${click ? 'absolute' : 'hidden'}`}>
-                        <li>
-                            <Link href='/' className='text-slate-900 px-3 py-2 rounded-md text-sm font-medium' onClick={closeMobileMenu}>
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href='/' className='text-slate-900 px-3 py-2 rounded-md text-sm font-medium' onClick={closeMobileMenu}>
-                                Admin
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href='/' className='text-slate-900 px-3 py-2 rounded-md text-sm font-medium' onClick={closeMobileMenu}>
-                                FAQ
-                            </Link>
-                        </li>
-                    </ul>
-                    <div className="flex flex-row">
-                        <Link href="/shoppingList"><FaShoppingCart className="text-slate-900 cursor-pointer text-3xl mx-4" /></Link>
-                        <div className="flex md:hidden">
-                            {click ? (
-                                <IoClose className="text-slate-900 cursor-pointer text-3xl" onClick={handleClick} />
-                            ) : (
-                                <IoMenu className="text-slate-900 cursor-pointer text-3xl" onClick={handleClick} />
-                            )}
-                        </div>
-                    </div>
-                </div>
+        <header className="bg-white h-14 flex items-center">
+        <div className="flex justify-between content-center w-[92%] mx-auto">
+            <div>
+                <Link className="cursor-pointer text-3xl font-bold" href="/">CooksCabinet</Link>
             </div>
-        </nav>
-    </div>
+            <div className={`nav-links duration-300 md:static absolute md:min-h-fit min-h-[100vh] top-14 ${
+            click ? 'right-[0%] bg-slate-200' : 'right-[100%]'
+          } md:w-auto w-full flex md:items-center px-5`}>
+                <ul className="flex md:flex-row flex-col items-start md:items-center md:gap-[3vw] gap-6 mt-5 md:m-0">
+                    <li>
+                        <Link onClick={closeMobileMenu} className="hover:text-gray-500 text-xl" href="/">Make a Recipe</Link>
+                    </li>
+                    <li>
+                        <Link onClick={closeMobileMenu} className="hover:text-gray-500 text-xl" href="/">Admin</Link>
+                    </li>
+                    <li>
+                        <Link onClick={closeMobileMenu} className="hover:text-gray-500 text-xl" href="/">FAQ</Link>
+                    </li>
+                </ul>
+            </div>
+            <div className="flex items-center gap-6">
+                <Link href="/shoppingList"><FaShoppingCart className="text-3xl cursor-pointer" /></Link>
+                {click ? <IoClose onClick={handleClick} className="text-3xl cursor-pointer md:hidden"/> : <IoMenu onClick={handleClick} className="text-3xl cursor-pointer md:hidden"/>}
+            </div>
+            </div>
+    </header>
   )
 }
 
