@@ -1,7 +1,8 @@
+import { getShoppingList, saveShoppingList } from '@/constant/LocalStorageItems';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  shoppingList: [], 
+  shoppingList: getShoppingList() || [], 
 };
 
 const shoppingListSlice = createSlice({
@@ -23,6 +24,7 @@ const shoppingListSlice = createSlice({
         // Add the ingredient if it doesn't exist
         state.shoppingList.push(ingredient);
       }
+      saveShoppingList(state.shoppingList);
     },
     removeIngredient: (state, action) => {
       const { ingredientName } = action.payload;
