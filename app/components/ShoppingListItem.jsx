@@ -1,6 +1,8 @@
+'use client'
+
 import React from 'react';
 
-export const ShoppingListItem = ({ ingredient }) => {
+const ShoppingListItem = ({ ingredient }) => {
   return (
     <li className="flex justify-between items-center p-2 border-b border-gray-300">
       <span className="flex-1">{ingredient.name}</span>
