@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react';
+import ShoppingListRemoveButton from './ShoppingListRemoveButton';
 
 const ShoppingListItem = ({ ingredient }) => {
   return (
@@ -10,6 +11,7 @@ const ShoppingListItem = ({ ingredient }) => {
       {ingredient.measurement !== null && ingredient.measurement !== 'null' && (
         <span className="ml-3 text-right">{ingredient.measurement}</span>
       )}
+      <ShoppingListRemoveButton ingredients={ingredient.name} />
     </li>
   );
 };
