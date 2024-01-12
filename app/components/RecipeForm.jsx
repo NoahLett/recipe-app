@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 const RecipeForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    recipeName: '',
     ingredients: [''],
     steps: [''],
   });
@@ -18,7 +18,7 @@ const RecipeForm = () => {
     } else if (type === 'steps') {
       updatedData.steps[index] = value;
     } else {
-      updatedData.name = value;
+      updatedData.recipeName = value;
     }
 
     setFormData(updatedData);
@@ -48,10 +48,24 @@ const RecipeForm = () => {
     setFormData(updatedData);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log('Form Data:', formData);
+    let recipeName = formData.recipeName;
+    let ingredients = formData.ingredients;
+    let steps = formData.steps;
+
+    try {
+        fetch('/api/add-post', { 
+            method: 'POST', 
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ recipeName, ingredients, steps })
+        })  
+    } catch (error) {
+        console.error(error)
+    }
   };
 
   return (
@@ -60,7 +74,7 @@ const RecipeForm = () => {
         Name:
         <input
           type="text"
-          value={formData.name}
+          value={formData.recipeName}
           onChange={(e) => handleInputChange(e, null, 'name')}
         />
       </label>
