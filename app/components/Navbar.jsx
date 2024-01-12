@@ -22,7 +22,7 @@ const Navbar = () => {
           } md:w-auto w-full flex md:items-center px-5`}>
                 <ul className="flex md:flex-row flex-col items-start md:items-center md:gap-[3vw] gap-6 mt-5 md:m-0">
                     <li>
-                        <Link onClick={closeMobileMenu} className="hover:text-gray-500 text-xl" href="/">Make a Recipe</Link>
+                        <Link onClick={closeMobileMenu} className="hover:text-gray-500 text-xl" href="/add-recipe">Make a Recipe</Link>
                     </li>
                     <li>
                         <Link onClick={closeMobileMenu} className="hover:text-gray-500 text-xl" href="/">Admin</Link>

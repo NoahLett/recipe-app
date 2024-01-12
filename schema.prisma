@@ -28,6 +28,7 @@ model User {
   password      String
   createdAt     DateTime    @default(now()) @map(name: "created_at")
   recipes       Recipe[]
+  submissions   Submission[]
   @@map(name: "users")
 }
 
@@ -38,4 +39,13 @@ model Ingredient {
   quantity      String
   recipe        Recipe   @relation(fields: [recipeId], references: [id])
   recipeId      String   
+}
+
+model Submission {
+  id            String      @default(cuid()) @id
+  name          String
+  ingredients   String[]
+  steps         String[]
+  author        User?       @relation(fields: [authorId], references: [id])
+  authorId      String?
 }
