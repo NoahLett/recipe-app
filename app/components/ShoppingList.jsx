@@ -14,7 +14,7 @@ const IngredientList = () => {
     <div>
         {shoppingListObj && shoppingListObj.length > 0 ? shoppingListObj.map((ingredient, index) => (
           <ul className='bg-slate-100 rounded-md mt-5'>
-            <ShoppingListItem key={index} ingredient={ingredient} />
+            <ShoppingListItem key={ingredient.name} ingredient={ingredient} />
           </ul>
         )):
         <div className='flex flex-col items-center mt-16'>
