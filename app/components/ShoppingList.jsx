@@ -12,7 +12,7 @@ const IngredientList = () => {
 
   return (
     <div>
-                <ul className='bg-slate-100 rounded-md mt-5'>
+      <ul className='bg-slate-100 rounded-md mt-5'>
         {shoppingListObj && shoppingListObj.length > 0 ? shoppingListObj.map((ingredient, index) => (
             <ShoppingListItem key={index} ingredient={ingredient} />
         )):
@@ -21,7 +21,7 @@ const IngredientList = () => {
           <FaBasketShopping className='text-7xl text-slate-100 mt-5'></FaBasketShopping>
         </div>
         }
-                </ul>
+      </ul>
     </div>
   );
 };
