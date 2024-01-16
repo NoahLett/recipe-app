@@ -37,7 +37,8 @@ const shoppingListSlice = createSlice({
       saveShoppingList(state.shoppingList);
     },
     clearShoppingList: (state) => {
-      state.shoppingList = []; // Clear the entire shopping list
+      state.shoppingList = [];
+      saveShoppingList(state.shoppingList);
     },
   },
 });
