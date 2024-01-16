@@ -3,11 +3,14 @@
 import React, { useState } from 'react';
 
 const RecipeForm = () => {
-  const [formData, setFormData] = useState({
+
+  const initialFormData = {
     recipeName: '',
     ingredients: [''],
     steps: [''],
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleInputChange = (e, index, type) => {
     const { value } = e.target;
