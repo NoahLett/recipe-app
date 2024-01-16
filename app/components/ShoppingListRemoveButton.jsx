@@ -1,11 +1,11 @@
 'use client'
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { removeIngredient } from '../store/slice';
+import { FaRegTrashCan } from "react-icons/fa6";
 
 const ShoppingListRemoveButton = ({ ingredients }) => {
     const dispatch = useDispatch();
-    const shoppingList = useSelector((state) => state.shoppingList);
 
     const handleRemoveItem = () => {
         const ingredientsToRemove = Array.isArray(ingredients) ? ingredients : [ingredients];
@@ -16,7 +16,7 @@ const ShoppingListRemoveButton = ({ ingredients }) => {
     };
 
     return (
-        <button onClick={handleRemoveItem}>Remove</button>
+        <button className='ml-4 text-slate-500' onClick={handleRemoveItem}><FaRegTrashCan></FaRegTrashCan></button>
     );
 };
 
