@@ -1,17 +1,22 @@
 'use client'
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { removeIngredient } from '../store/slice';
 import { FaRegTrashCan } from "react-icons/fa6";
+import { toggleItemCheckbox } from '../store/checkboxSlice';
 
 const ShoppingListRemoveButton = ({ ingredients }) => {
     const dispatch = useDispatch();
+    const checkedItems = useSelector((state) => state.checkbox.checkedItems);
 
     const handleRemoveItem = () => {
         const ingredientsToRemove = Array.isArray(ingredients) ? ingredients : [ingredients];
         ingredientsToRemove.forEach((ingredientName) => {
-            console.log(ingredientName);
+            const isIngredientChecked = checkedItems.includes(ingredientName);
             dispatch(removeIngredient( ingredientName ));
+            if (isIngredientChecked) {
+                dispatch(toggleItemCheckbox(ingredientName));
+            }
         });
     };
 
