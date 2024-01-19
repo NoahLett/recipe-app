@@ -1,0 +1,22 @@
+/* CustomCheckbox.css */
+
+.custom-checkbox {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0;
+  }
+  
+  .checkmark {
+    color: white; /* White checkmark color */
+    font-size: 1.75rem;
+    z-index: 1;
+    position: relative;
+    bottom: .4rem;
+    transition: visibility 0.3s;
+    margin: 0;
+  }
+  

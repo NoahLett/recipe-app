@@ -4,6 +4,7 @@ import React from 'react';
 import ShoppingListRemoveButton from './ShoppingListRemoveButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleItemCheckbox } from '../store/checkboxSlice';
+import CustomCheckbox from './CustomCheckbox';
 
 const ShoppingListItem = ({ ingredient }) => {
   const dispatch = useDispatch();
@@ -16,13 +17,8 @@ const ShoppingListItem = ({ ingredient }) => {
   return (
     <li className="flex flex-nowrap p-2 border-b border-gray-300">
       <div className='flex-1'>
-        <input
-          type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
-          className="mr-2"
-        />
-        <span>{ingredient.name}</span>
+        <CustomCheckbox checked={isChecked} onChange={handleCheckboxChange} />
+        <div>{ingredient.name}</div>
       </div>
       <div className='flex-1'>
         <span className="text-gray-600 whitespace-nowrap items-start">{ingredient.quantity}</span>
