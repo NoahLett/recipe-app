@@ -9,14 +9,14 @@ import Link from "next/link";
     console.log(recipe);
 
     return (
-      <div className="min-h-screen p-2">
+      <div className="min-h-screen pt-20">
         <div className="max-w-max mx-auto mt-8 p-6 bg-white rounded-md shadow-lg">
           <div className="flex justify-between">
-            <Link href="/" className="inline-flex hover:text-slate-600 transition-all duration-300"><IoIosArrowBack className="text-2xl"/>Back</Link>
-            <ShoppingListAddButton ingredients={recipe.ingredients} />
+          <Link href="/" className="inline-flex hover:text-slate-600 transition-all duration-300"><IoIosArrowBack className="text-2xl"/>Back</Link>
+          <ShoppingListAddButton ingredients={recipe.ingredients} />
           </div>
         <h1 className="text-3xl font-bold my-4 text-slate-600">{recipe.name}</h1>
-        <div className="my-6 flex justify-center">
+        <div className="mt-6 flex justify-center">
           <img
             src={recipe.image_src}
             alt="Dish"
@@ -25,7 +25,7 @@ import Link from "next/link";
             className="rounded-md"
           />
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 mt-4">
           <div>
             <h2 className="text-xl font-semibold mb-2 text-slate-600">Ingredients</h2>
             <ul className="list-disc ml-6">

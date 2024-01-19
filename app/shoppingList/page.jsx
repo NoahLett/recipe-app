@@ -8,8 +8,8 @@ const IngredientList = dynamic(() => import('../components/ShoppingList'), {
 
 const ShoppingListPage = () => {
   return (
-    <main className="px-4 mt-10 min-h-screen">
-      <h1 className="text-3xl text-center font-medium">Shopping List</h1>
+    <main className="px-4 pt-20 min-h-screen max-w-2xl mx-auto">
+      <h1 className="text-3xl text-center font-semibold">Shopping List</h1>
       <IngredientList />
     </main>
   )
