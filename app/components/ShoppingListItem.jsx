@@ -14,18 +14,22 @@ const ShoppingListItem = ({ ingredient }) => {
   };
 
   return (
-    <li className="flex justify-between items-center p-2 border-b border-gray-300">
-      <input
-        type="checkbox"
-        checked={isChecked}
-        onChange={handleCheckboxChange}
-        className="mr-2"
-      />
-      <span className="flex-1">{ingredient.name}</span>
-      <span className="text-gray-600 whitespace-nowrap">{ingredient.quantity}</span>
-      {ingredient.measurement !== null && ingredient.measurement !== 'null' && (
-        <span className="ml-3 text-right">{ingredient.measurement}</span>
-      )}
+    <li className="flex flex-nowrap p-2 border-b border-gray-300">
+      <div className='flex-1'>
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+          className="mr-2"
+        />
+        <span>{ingredient.name}</span>
+      </div>
+      <div className='flex-1'>
+        <span className="text-gray-600 whitespace-nowrap items-start">{ingredient.quantity}</span>
+        {ingredient.measurement !== null && ingredient.measurement !== 'null' && (
+          <span className="ml-3 items-start">{ingredient.measurement}</span>
+        )}
+      </div>
       <ShoppingListRemoveButton ingredients={ingredient.name} />
     </li>
   );

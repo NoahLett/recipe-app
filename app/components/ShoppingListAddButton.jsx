@@ -25,9 +25,9 @@ const ShoppingListAddButton = ({ ingredients }) => {
   return (
     <button onClick={handleAddToShoppingList}>
       {isAdded ? (
-        <FaCheck className="text-2xl text-green-500 transition-all duration-300" />
+        <FaCheck className="text-2xl text-green-500 transition-all duration-200" />
       ) : (
-        <FaCartPlus className='text-2xl text-slate-800 hover:text-green-500 transition-all duration-300'/>
+        <FaCartPlus className='text-2xl text-slate-800 hover:text-green-500 transition-all duration-200'/>
       )} 
       </button>
   );
