@@ -9,7 +9,7 @@ import Link from "next/link";
     console.log(recipe);
 
     return (
-      <div className="min-h-screen pt-20">
+      <div className="min-h-screen pt-20 px-2">
         <div className="max-w-max mx-auto mt-8 p-6 bg-white rounded-md shadow-lg">
           <div className="flex justify-between">
           <Link href="/" className="inline-flex hover:text-slate-600 transition-all duration-300"><IoIosArrowBack className="text-2xl"/>Back</Link>
