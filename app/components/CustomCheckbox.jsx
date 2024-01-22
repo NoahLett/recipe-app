@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from "react";
-import { PiCircleThin } from "react-icons/pi";
-import { FaCheckCircle } from "react-icons/fa";
+import { FaRegCircle } from "react-icons/fa";
+import { FaCircleCheck } from "react-icons/fa6";
 
 const CustomCheckbox = ({ checked, onChange }) => {
     const [isChecked, setIsChecked] = useState(checked);
@@ -16,9 +16,9 @@ const CustomCheckbox = ({ checked, onChange }) => {
   return (
     <div className="mx-2">
       { isChecked ? (
-        <FaCheckCircle className="text-3xl text-green-500 hover:cursor-pointer" onClick={handleCheckbox} />
+        <FaCircleCheck className="text-3xl text-green-500 border-black border-[3px] rounded-full hover:cursor-pointer bg-white" onClick={handleCheckbox} />
       ) : (
-        <PiCircleThin className="text-3xl hover:cursor-pointer" onClick={handleCheckbox} />
+        <FaRegCircle className="text-3xl hover:cursor-pointer" onClick={handleCheckbox} />
       )}
     </div>
   );

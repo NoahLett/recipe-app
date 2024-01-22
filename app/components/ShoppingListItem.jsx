@@ -15,13 +15,13 @@ const ShoppingListItem = ({ ingredient }) => {
   };
 
   return (
-    <li className="flex flex-nowrap p-2 border-b border-gray-300">
+    <li className={`flex flex-nowrap p-2 border-b border-gray-300 ${isChecked ? 'bg-slate-300 transition-all duration-150' : ''}`}>
       <div className='flex flex-row flex-1 items-center'>
         <CustomCheckbox checked={isChecked} onChange={handleCheckboxChange} />
-        <div className='text-xl'>{ingredient.name}</div>
+        <div className='text-xl ml-2'>{ingredient.name}</div>
       </div>
-      <div className='flex-1'>
-        <span className="text-xl whitespace-nowrap items-start">{ingredient.quantity}</span>
+      <div className='flex-1 content-center my-auto'>
+        <span className="text-xl whitespace-nowrap">{ingredient.quantity}</span>
         {ingredient.measurement !== null && ingredient.measurement !== 'null' && (
           <span className="text-xl ml-3 items-start">{ingredient.measurement}</span>
         )}
