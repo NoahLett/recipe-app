@@ -72,60 +72,74 @@ const RecipeForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input
-          type="text"
-          value={formData.recipeName}
-          onChange={(e) => handleInputChange(e, null, 'name')}
-        />
-      </label>
+    <div className='min-w-[300px] max-w-screen-sm mx-auto p-2'>
+      <form className='rounded-md bg-white p-3' onSubmit={handleSubmit}>
+        <label>
+          Name:
+          </label><br/>
+          <input
+            type="text"
+            value={formData.recipeName}
+            onChange={(e) => handleInputChange(e, null, 'name')}
+            className='border-solid border-2 border-slate-400 rounded'
+          />
 
-      <div>
-        <label>Ingredients:</label>
-        {formData.ingredients.map((ingredient, index) => (
-          <div key={index}>
-            <input
-              type="text"
-              value={ingredient}
-              onChange={(e) => handleInputChange(e, index, 'ingredients')}
-            />
-            {index > 0 && (
-              <button type="button" onClick={() => handleRemoveInput(index, 'ingredients')}>
-                Remove
-              </button>
-            )}
-          </div>
-        ))}
-        <button type="button" onClick={() => handleAddInput('ingredients')}>
-          Add Ingredient
+        <div>
+          <label>Ingredients:</label>
+          {formData.ingredients.map((ingredient, index) => (
+            <div key={index}>
+              <input
+                type="text"
+                value={ingredient}
+                onChange={(e) => handleInputChange(e, index, 'ingredients')}
+                className='border-solid border-2 border-slate-400 rounded'
+              />
+              {index > 0 && (
+                <button type="button" onClick={() => handleRemoveInput(index, 'ingredients')}>
+                  Remove
+                </button>
+              )}
+            </div>
+          ))}
+          <button type="button" onClick={() => handleAddInput('ingredients')}>
+            Add Ingredient
+          </button>
+        </div>
+
+        <div>
+          <label>Steps:</label>
+          {formData.steps.map((step, index) => (
+            <div key={index}>
+              <input
+                type="text"
+                value={step}
+                onChange={(e) => handleInputChange(e, index, 'steps')}
+                className='border-solid border-2 border-slate-400 rounded '
+              />
+              {index > 0 && (
+                <button
+                 type="button" 
+                 onClick={() => handleRemoveInput(index, 'steps')}>
+                  Remove
+                </button>
+              )}
+            </div>
+          ))}
+          <button 
+            type="button" 
+            onClick={() => handleAddInput('steps')}
+            className='pb-2'>
+            Add Step
+          </button>
+        </div>
+
+        <button 
+          type="submit"
+          className='border-solid border-[1px] border-black rounded hover:bg-green-400 hover:text-white transition-all duration-150 p-1'>
+            Submit
         </button>
-      </div>
-
-      <div>
-        <label>Steps:</label>
-        {formData.steps.map((step, index) => (
-          <div key={index}>
-            <input
-              type="text"
-              value={step}
-              onChange={(e) => handleInputChange(e, index, 'steps')}
-            />
-            {index > 0 && (
-              <button type="button" onClick={() => handleRemoveInput(index, 'steps')}>
-                Remove
-              </button>
-            )}
-          </div>
-        ))}
-        <button type="button" onClick={() => handleAddInput('steps')}>
-          Add Step
-        </button>
-      </div>
-
-      <button type="submit">Submit</button>
-    </form>
+      </form>
+    </div>
   );
 };
 
