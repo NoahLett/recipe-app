@@ -4,7 +4,7 @@ import getRecipes from '@/lib/getRecipes';
 export default async function Home() {
   const recipes = await getRecipes();
   return (
-    <main className="flex flex-wrap items-center justify-center min-h-screen">
+    <main className="flex flex-wrap items-center justify-center min-h-screen pt-20">
       {
         recipes.map((recipe) => {
           return (
