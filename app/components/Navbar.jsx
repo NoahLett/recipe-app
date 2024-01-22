@@ -26,7 +26,7 @@ const Navbar = () => {
                         <Link onClick={closeMobileMenu} className="hover:text-gray-500 text-xl" href="/add-recipe">Make a Recipe</Link>
                     </li>
                     <li>
-                        <Link onClick={closeMobileMenu} className="hover:text-gray-500 text-xl" href="/">Admin</Link>
+                        <Link onClick={closeMobileMenu} className="hover:text-gray-500 text-xl" href="/admin">Admin</Link>
                     </li>
                     <li>
                         <Link onClick={closeMobileMenu} className="hover:text-gray-500 text-xl" href="/">FAQ</Link>
