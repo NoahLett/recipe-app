@@ -5,6 +5,8 @@ import { IoMenu, IoClose } from "react-icons/io5";
 import React, { useState} from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+
 
 const ACTIVE = "border-b-2 border-sky-300 transition-all duration-150";
 const INACTIVE = "";
@@ -15,9 +17,11 @@ function AuthButton() {
 
     if (session) {
         return (
-            <>
-                <button onClick={() => signOut()}>Sign Out</button>
-            </>
+            <div onClick={signOut} className="flex items-center">
+                {/* <button onClick={() => signOut()}>Sign Out</button> */}
+                <Image className="cursor-pointer object-fit rounded-full border-[1px] border-sky-400" width={40} height={40} src={session?.user?.image} />
+                <span className="mx-1 hover:text-gray-500 cursor-pointer transition-all duration-150">{session?.user?.name}</span>
+            </div>
         );
     }
     return (
