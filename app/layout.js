@@ -22,8 +22,10 @@ export default async function RootLayout({ children }) {
     <StoreProvider>
       <html lang="en">
         <body className={`${poppins.variable} font-sans bg-gradient-to-t from-[#fbc2eb] to-[#a6c1ee]`}>
-          <Navbar />
-          <SessionProvider session={session}>{children}</SessionProvider>
+          <SessionProvider session={session}>
+            <Navbar />
+            {children}
+          </SessionProvider>
         </body>
       </html>
     </StoreProvider>
