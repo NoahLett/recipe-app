@@ -3,6 +3,26 @@ import Link from "next/link"
 import { FaShoppingCart } from "react-icons/fa";
 import { IoMenu, IoClose } from "react-icons/io5";
 import React, { useState, useEffect } from "react";
+import { signIn, signOut, useSession } from "next-auth/react";
+
+function AuthButton() {
+    const { data: session } = useSession();
+
+    if (session) {
+        return (
+            <>
+                {session?.user?.name}
+                <button onClick={() => signOut()}>Sign Out</button>
+            </>
+        );
+    }
+    return (
+        <>
+        Not Signed In
+        <Button onClick={() => signIn()}>Sign In</Button>
+        </>
+    )
+}
 
 const Navbar = () => {
 
