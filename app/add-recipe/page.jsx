@@ -12,7 +12,7 @@ const AddRecipePage = async () => {
   }
 
   return (
-    <div className="min-h-screen py-4 pt-20">
+    <div className="min-h-screen pt-[7rem]">
         <h1 className="text-3xl text-center font-semibold mb-3">Hey, {session?.user?.name}!</h1>
         <h3 className="text-2xl text-center font-medium">Let&apos;s Make a Recipe!</h3>
         <RecipeForm />
