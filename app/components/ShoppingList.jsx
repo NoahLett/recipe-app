@@ -3,8 +3,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ShoppingListItem from './ShoppingListItem';
-import dynamic from 'next/dynamic';
-import { ImSad } from "react-icons/im";
+import Image from 'next/image';
 
 
 
@@ -20,9 +19,9 @@ const IngredientList = () => {
         ))}
       </ul>
       ) : (
-        <div className='flex flex-col items-center justify-center mt-20'>
+        <div className='flex flex-col items-center justify-center mt-10'>
           <h2 className='text-2xl font-medium'>Your cart is empty!</h2>
-          <ImSad className='text-8xl mt-5' />
+          <Image width={500} height={500} src='/shopping.svg' alt='People Shopping' priority={true} />
         </div>
       )
     }

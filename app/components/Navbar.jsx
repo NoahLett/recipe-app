@@ -19,7 +19,7 @@ function AuthButton() {
         return (
             <div onClick={signOut} className="flex items-center">
                 {/* <button onClick={() => signOut()}>Sign Out</button> */}
-                <Image className="cursor-pointer object-fit rounded-full border-[1px] border-sky-400" width={40} height={40} src={session?.user?.image} />
+                <Image className="cursor-pointer object-fit rounded-full border-[1px] border-sky-400" priority={true} width={40} height={40} src={session?.user?.image} alt="profile picture" />
                 <span className="mx-1 hover:text-gray-500 cursor-pointer transition-all duration-150 text-lg">{session?.user?.name}</span>
             </div>
         );
