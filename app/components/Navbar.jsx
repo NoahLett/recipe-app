@@ -58,7 +58,7 @@ const Navbar = () => {
                         <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-xl ${pathname === "/admin" ? ACTIVE : INACTIVE}`} href="/admin">Admin</Link>
                     </li>
                     <li>
-                        <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-xl ${pathname === "/" ? ACTIVE : INACTIVE}`} href="/">FAQ</Link>
+                        <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-xl ${pathname === "/faq" ? ACTIVE : INACTIVE}`} href="/faq">FAQ</Link>
                     </li>
                     <li>
                         <AuthButton />
