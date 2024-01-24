@@ -147,7 +147,7 @@ const RecipeForm = () => {
         <div className='flex justify-end'>
           <button 
             type="submit"
-            className='bg-sky-300 p-2 rounded shadow-md text-2xl lg:text-xl hover:bg-sky-400 ml-1 transition-all duration-150'>
+            className='bg-sky-300 p-2 rounded shadow-md text-xl lg:text-xl hover:bg-sky-400 ml-1 transition-all duration-150'>
               Submit
           </button>
         </div>
