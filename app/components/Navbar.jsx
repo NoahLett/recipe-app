@@ -2,10 +2,12 @@
 import Link from "next/link"
 import { FaShoppingCart } from "react-icons/fa";
 import { IoMenu, IoClose } from "react-icons/io5";
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { GiChefToque } from "react-icons/gi";
+
 
 
 const ACTIVE = "border-b-2 border-sky-300 transition-all duration-150";
@@ -18,16 +20,16 @@ function AuthButton() {
     if (session) {
         return (
             <div onClick={signOut} className="flex items-center">
-                {/* <button onClick={() => signOut()}>Sign Out</button> */}
-                <Image className="cursor-pointer object-fit rounded-full border-[1px] border-sky-400" priority={true} width={40} height={40} src={session?.user?.image} alt="profile picture" />
+                <Image className="cursor-pointer mx-2 object-fit rounded-full border-[1px] border-sky-400" priority={true} width={40} height={40} src={session?.user?.image} alt="profile picture" />
                 <span className="mx-1 hover:text-gray-500 cursor-pointer transition-all duration-150 text-lg">{session?.user?.name}</span>
             </div>
         );
     }
     return (
-        <>
-        <button className="bg-sky-300 p-2 rounded shadow-md text-2xl lg:text-xl hover:bg-sky-400 ml-1 transition-all duration-150" onClick={signIn}>Sign In</button>
-        </>
+        <div onClick={signIn} className="flex items-center">
+            <GiChefToque className="cursor-pointer mx-2 text-[2.48rem] rounded-full border-[1px] border-sky-400" />
+            <span className="mx-1 hover:text-gray-500 cursor-pointer transition-all duration-150 text-lg">Sign In</span>
+        </div>
     )
 }
 
@@ -66,7 +68,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="flex items-center ml-5 gap-5">
-                <Link href="/shoppingList"><FaShoppingCart className="text-3xl cursor-pointer" /></Link>
+                <Link onClick={closeMobileMenu} href="/shoppingList"><FaShoppingCart className="text-3xl cursor-pointer" /></Link>
                 {click ? <IoClose onClick={handleClick} className="text-3xl cursor-pointer lg:hidden"/> : <IoMenu onClick={handleClick} className="text-3xl cursor-pointer lg:hidden"/>}
             </div>
             </div>
