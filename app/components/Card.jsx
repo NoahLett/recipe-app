@@ -8,7 +8,7 @@ export default function Card({id, name, ingredients, image_src, author}) {
         <Link href={`/recipes/${id}`}><img className="h-52 object-fill" src={image_src} alt="Recipe Card" /></Link>
         <div className="px-6 py-4 bg-slate-100">
           <div className="flex justify-between">
-            <span className="font-bold text-xl mb-2">{name}</span>
+            <Link className="mb-2" href={`/recipes/${id}`}><span className="font-bold text-xl">{name}</span></Link>
             <div className="flex my-auto">
               <ShoppingListAddButton ingredients={ingredients} />
             </div>

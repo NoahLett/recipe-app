@@ -75,8 +75,8 @@ const RecipeForm = () => {
 
   return (
     <div className='min-w-[300px] max-w-screen-sm mx-auto p-2 pt-4'>
-      <form className='rounded-md bg-white p-4' onSubmit={handleSubmit}>
-        <div>
+      <form className='shadow-md rounded-md bg-white p-4' onSubmit={handleSubmit}>
+        <div className='mb-5'>
           <label className='text-lg font-medium'>Recipe Name</label>
             <div className='my-2'>
               <input
@@ -112,7 +112,7 @@ const RecipeForm = () => {
             type="button" 
             onClick={() => handleAddInput('ingredients')}
             className='self-center'>
-            <IoAddCircleOutline className='text-2xl hover:text-sky-400 transition-all duration-150' />
+            <IoAddCircleOutline className='text-2xl hover:text-green-400 transition-all duration-150' />
           </button>
         </div>
 
@@ -140,14 +140,14 @@ const RecipeForm = () => {
             type="button" 
             onClick={() => handleAddInput('steps')}
             className='pb-2 self-center'>
-            <IoAddCircleOutline className='text-2xl hover:text-sky-400 transition-all duration-150' />
+            <IoAddCircleOutline className='text-2xl hover:text-green-400 transition-all duration-150' />
           </button>
         </div>
         
         <div className='flex justify-end'>
           <button 
             type="submit"
-            className='border-solid border-[1px] border-black rounded hover:bg-green-400 hover:text-white hover:border-green-400 transition-all duration-150 p-1'>
+            className='bg-sky-300 p-2 rounded shadow-md text-2xl lg:text-xl hover:bg-sky-400 ml-1 transition-all duration-150'>
               Submit
           </button>
         </div>

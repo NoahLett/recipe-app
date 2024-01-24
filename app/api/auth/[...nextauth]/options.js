@@ -9,7 +9,7 @@ export const options = {
 
                 let userRole = "Github User";
                 if(profile?.email === "noahblett96@gmail.com") {
-                    userRole = "admin"
+                    userRole = "admin";
                 }
                 return {
                     ...profile,
@@ -25,6 +25,9 @@ export const options = {
                 console.log("Google profile:", profile);
 
                 let userRole = "Google User";
+                if (profile?.email === "kk.rochelle@gmail.com") {
+                    userRole = "admin";
+                }
 
                 return {
                     ...profile,

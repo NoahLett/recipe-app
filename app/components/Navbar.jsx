@@ -19,14 +19,14 @@ function AuthButton() {
         return (
             <div onClick={signOut} className="flex items-center">
                 {/* <button onClick={() => signOut()}>Sign Out</button> */}
-                <Image className="cursor-pointer object-fit rounded-full border-[1px] border-sky-400" width={40} height={40} src={session?.user?.image} />
-                <span className="mx-1 hover:text-gray-500 cursor-pointer transition-all duration-150">{session?.user?.name}</span>
+                <Image className="cursor-pointer object-fit rounded-full border-[1px] border-sky-400" priority={true} width={40} height={40} src={session?.user?.image} alt="profile picture" />
+                <span className="mx-1 hover:text-gray-500 cursor-pointer transition-all duration-150 text-lg">{session?.user?.name}</span>
             </div>
         );
     }
     return (
         <>
-        <button className="bg-sky-300 p-2 rounded shadow-md text-2xl lg:text-xl hover:bg-sky-400 ml-1 transition-all duration-150" onClick={() => signIn()}>Sign In</button>
+        <button className="bg-sky-300 p-2 rounded shadow-md text-2xl lg:text-xl hover:bg-sky-400 ml-1 transition-all duration-150" onClick={signIn}>Sign In</button>
         </>
     )
 }
@@ -42,7 +42,7 @@ const Navbar = () => {
 
   return (
         <header className="bg-white h-14 flex items-center fixed w-full top-0 z-50">
-        <div className="flex justify-between content-center w-[92%] mx-auto">
+        <div className="flex justify-between content-center items-center w-[92%] mx-auto">
             <div>
                 <Link onClick={closeMobileMenu} className="cursor-pointer text-3xl font-bold" href="/">CooksCabinet</Link>
             </div>
