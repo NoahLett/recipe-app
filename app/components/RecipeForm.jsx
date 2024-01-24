@@ -75,7 +75,7 @@ const RecipeForm = () => {
 
   return (
     <div className='min-w-[300px] max-w-screen-sm mx-auto p-2 pt-4'>
-      <form className='rounded-md bg-white p-4' onSubmit={handleSubmit}>
+      <form className='shadow-md rounded-md bg-white p-4' onSubmit={handleSubmit}>
         <div>
           <label className='text-lg font-medium'>Recipe Name</label>
             <div className='my-2'>
