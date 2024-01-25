@@ -39,4 +39,6 @@ model Submission {
   authorId      String?
   pending       Boolean     @default(true)
   denied        Boolean     @default(false)
+  authorVisible Boolean     @default(true)
+  adminVisible  Boolean     @default(true)
 }
