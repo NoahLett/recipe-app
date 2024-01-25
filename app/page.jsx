@@ -16,7 +16,7 @@ export default async function Home() {
               id={recipe.id}
               name={recipe.name}
               image_src={recipe.image_src}
-              author={recipe.author.name}
+              author={recipe.author}
               ingredients={recipe.ingredients} 
             />
           )

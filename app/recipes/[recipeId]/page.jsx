@@ -5,8 +5,7 @@ import Link from "next/link";
 
   export default async function Page({ params }) {
 
-    const recipe = await getRecipe(params.recipeId)
-    console.log(recipe);
+    const recipe = await getRecipe(params.recipeId);
 
     return (
       <div className="min-h-screen pt-20 px-2">

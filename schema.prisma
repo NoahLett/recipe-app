@@ -17,19 +17,8 @@ model Recipe {
   steps         String[]
   image_src     String?
   published     Boolean     @default(false)
-  author        User?       @relation(fields: [authorId], references: [id])
+  author        String?
   authorId      String?
-}
-
-model User {
-  id            String      @default(cuid()) @id
-  name          String
-  email         String      @unique
-  password      String
-  createdAt     DateTime    @default(now()) @map(name: "created_at")
-  recipes       Recipe[]
-  submissions   Submission[]
-  @@map(name: "users")
 }
 
 model Ingredient {
@@ -46,6 +35,8 @@ model Submission {
   name          String
   ingredients   String[]
   steps         String[]
-  author        User?       @relation(fields: [authorId], references: [id])
+  author        String?
   authorId      String?
+  pending       Boolean     @default(true)
+  denied        Boolean     @default(false)
 }
