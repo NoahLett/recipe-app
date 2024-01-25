@@ -3,8 +3,11 @@
 import React, { useState } from 'react';
 import { FaRegTrashCan } from "react-icons/fa6";
 import { IoAddCircleOutline } from "react-icons/io5";
+import { useSession } from 'next-auth/react';
 
 const RecipeForm = () => {
+
+  const { data: session } = useSession();
 
   const initialFormData = {
     recipeName: '',
@@ -55,7 +58,10 @@ const RecipeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
+    console.log(session);
+    console.log(session?.user);
+    let authorName = session?.user?.name;
+    let id = session?.user?.id;
     let recipeName = formData.recipeName;
     let ingredients = formData.ingredients;
     let steps = formData.steps;
@@ -66,7 +72,7 @@ const RecipeForm = () => {
             headers: {
             'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ recipeName, ingredients, steps })
+            body: JSON.stringify({ authorName, id, recipeName, ingredients, steps })
         })  
     } catch (error) {
         console.error(error)

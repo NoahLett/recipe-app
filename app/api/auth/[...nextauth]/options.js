@@ -13,6 +13,7 @@ export const options = {
                 }
                 return {
                     ...profile,
+                    id: profile.id.toString(),
                     role: userRole,
                     image: profile.avatar_url,
                 };
@@ -41,12 +42,18 @@ export const options = {
         }),
     ],
     callbacks: {
-        async jwt({token, user}) {
-            if (user) token.role = user.role
+        async jwt({token, user, profile}) {
+            if (user) { 
+                token.role = user.role;
+                token.id = user.id;
+            }
             return token;
         },
-        async session({session, token}) {
-            if (session?.user) session.user.role = token.role
+        async session({session, token, user}) {
+            if (session?.user) { 
+                session.user.role = token.role;
+                session.user.id = token.id;
+            }
             return session;
         }
     }
