@@ -14,7 +14,7 @@ const Hero = () => {
         <div className='flex flex-col justify-center ml-[2rem] md:ml-[7rem]'>
           <p className='text-md md:text-2xl text-[#6CA7A9] font-medium my-1'>EXQUISITE RECIPES</p>
           <h1 className='text-2xl md:text-5xl font-semibold'>Hey there, {session?.user?.name}!</h1>
-          <p className='text-md md:text-xl text-slate-500 font-medium my-2'>Let's Get That List Going!</p>
+          <p className='text-md md:text-xl text-slate-500 font-medium my-2'>Let&apos;s Get That List Going!</p>
         </div>
         <Image src={'/chef.svg'} height={300} width={500} priority={true} alt='hero image' />
       </div>
