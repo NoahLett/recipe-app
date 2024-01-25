@@ -43,7 +43,7 @@ const Navbar = () => {
   const closeMobileMenu = () => setClick(false);
 
   return (
-        <header className="bg-white h-14 flex items-center fixed w-full top-0 z-50">
+        <header className="bg-white h-14 flex items-center fixed w-full top-0 z-50 border-b-2 border-slate-200">
         <div className="flex justify-between content-center items-center w-[92%] mx-auto">
             <div>
                 <Link onClick={closeMobileMenu} className="cursor-pointer text-3xl font-bold" href="/">CooksCabinet</Link>
