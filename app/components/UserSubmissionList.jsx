@@ -12,7 +12,7 @@ const UserSubmissionList = async () => {
 
     if (session) {
         return (
-            <div className="my-5 mx-2">
+            <div className="p-4 w-full">
                 <h1 className="text-3xl font-semibold">Your Submissions</h1>
                 {submissions ? (
                     <div className="flex flex-wrap justify-center">
@@ -24,10 +24,10 @@ const UserSubmissionList = async () => {
                                     id={submission.id}
                                     name={submission.name}
                                     author={submission.author}
-                                    authorId={submission.authorId}
                                     pending={submission.pending}
                                     denied={submission.denied}
-                                    authorVisible={submission.authorVisible}
+                                    ingredients={submission.ingredients}
+                                    steps={submission.steps}
                                     />
                                 )
                             })
