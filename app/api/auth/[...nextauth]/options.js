@@ -34,7 +34,7 @@ export const options = {
                     ...profile,
                     id: profile.sub,
                     role: userRole,
-                    image: profile.picture
+                    image: profile.picture,
                 };
             },
             clientId: process.env.GOOGLE_ID,

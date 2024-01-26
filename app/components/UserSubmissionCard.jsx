@@ -1,11 +1,16 @@
 'use client'
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { IoCloseOutline } from "react-icons/io5";
+import { FaChevronDown } from "react-icons/fa6";
+import { FaChevronUp } from "react-icons/fa6";
 
 const UserSubmissionCard = ({ id, name, author, pending, denied, ingredients, steps }) => {
 
   const router = useRouter();
+  const [showIngredients, setShowIngredients] = useState(false);
+  const [showSteps, setShowSteps] = useState(false);
 
   const handleChangeView = async (e) => {
     try {
@@ -16,6 +21,14 @@ const UserSubmissionCard = ({ id, name, author, pending, denied, ingredients, st
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleToggleIngredients = () => {
+    setShowIngredients(!showIngredients);
+  };
+
+  const handleToggleSteps = () => {
+    setShowSteps(!showSteps);
   };
 
   const getStatusAndColor = () => {
@@ -39,17 +52,27 @@ const UserSubmissionCard = ({ id, name, author, pending, denied, ingredients, st
         <IoCloseOutline className="text-2xl cursor-pointer hover:text-red-500 transition-all duration-150" onClick={handleChangeView} />
       </div>
       <div className="flex justify-around">
-        <div>
-          <p className="text-lg font-medium">Ingredients</p>
-          <ul className="list-disc ml-4">
+        <div className="my-2">
+          <div className="flex items-center" onClick={handleToggleIngredients}>
+            <p className="text-lg font-medium cursor-pointer">
+              Ingredients
+            </p>
+            {showIngredients ? <FaChevronDown className="mx-2" /> : <FaChevronUp className="mx-2"/>}
+          </div>
+          <ul className={`list-disc ml-4 transition-all duration-300 ${showIngredients ? 'opacity-100 max-h-96' : 'opacity-0 max-h-0 overflow-hidden'}`}>
             {ingredients.map((ingredient, index) => (
               <li key={index}>{ingredient}</li>
             ))}
           </ul>
         </div>
-        <div>
-          <p className="text-lg font-medium">Steps</p>
-          <ol className="list-decimal ml-4">
+        <div className="my-2">
+          <div className="flex items-center" onClick={handleToggleSteps}>
+            <p className="text-lg font-medium cursor-pointer">
+              Steps
+            </p>
+            {showSteps ? <FaChevronDown className="mx-2" /> : <FaChevronUp className="mx-2"/>}
+          </div>
+          <ol className={`list-decimal ml-4 transition-all duration-300 ${showSteps ? 'opacity-100 max-h-96' : 'opacity-0 max-h-0 overflow-hidden'}`}>
             {steps.map((step, index) => (
               <li key={index}>{step}</li>
             ))}
@@ -61,7 +84,7 @@ const UserSubmissionCard = ({ id, name, author, pending, denied, ingredients, st
           <span className="text-gray-700">{author}</span>
         </div>
         <div>
-        <span className={`m-0 border-[1px] p-1 ${statusInfo.borderColor} rounded-md font-medium ${statusInfo.color}`}>{statusInfo.text}</span>
+          <span className={`m-0 border-[1px] p-1 ${statusInfo.borderColor} rounded-md font-medium ${statusInfo.color}`}>{statusInfo.text}</span>
         </div>
       </div>
     </div>

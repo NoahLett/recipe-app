@@ -13,29 +13,33 @@ const UserSubmissionList = async () => {
     if (session) {
         return (
             <div className="p-4 w-full">
-                <h1 className="text-3xl font-semibold">Your Submissions</h1>
-                {submissions ? (
-                    <div className="flex flex-wrap justify-center">
-                        {
-                            submissions.map((submission) => {
-                                return (
-                                    <UserSubmissionCard 
-                                    key={submission.id}
-                                    id={submission.id}
-                                    name={submission.name}
-                                    author={submission.author}
-                                    pending={submission.pending}
-                                    denied={submission.denied}
-                                    ingredients={submission.ingredients}
-                                    steps={submission.steps}
-                                    />
-                                )
-                            })
-                        }
+                {submissions && submissions.length ? (
+                    <div>
+                        <h1 className="text-3xl font-semibold">Your Submissions</h1>
+                        <div className="flex flex-wrap justify-center">
+                            {
+                                submissions.map((submission) => {
+                                    return (
+                                        <UserSubmissionCard 
+                                        key={submission.id}
+                                        id={submission.id}
+                                        name={submission.name}
+                                        author={submission.author}
+                                        pending={submission.pending}
+                                        denied={submission.denied}
+                                        ingredients={submission.ingredients}
+                                        steps={submission.steps}
+                                        />
+                                    )
+                                })
+                            }
+                        </div>
                     </div>
                 ) : (
-                    <div>
-                        <Image src={'/on-phone.svg'} width={200} height={200} priority={true} alt='No Submissions' />
+                    <div className="flex flex-col justify-center items-center">
+                        <h1 className="text-3xl font-semibold">No Viewable Submissions Here!</h1>
+                        <p className="text-xl font-medium">Time to Get Typing!</p>
+                        <Image src={'/writing.svg'} height={300} width={1000} priority={true} alt="No Show" />
                     </div>
                 )}
             </div>
