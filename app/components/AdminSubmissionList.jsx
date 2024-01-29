@@ -1,5 +1,6 @@
 import getAllSubmissions from "@/lib/getAllSubmissions";
 import AdminSubmissionCard from "./AdminSubmissionCard";
+import Image from "next/image";
 
 const AdminSubmissionList = async () => {
 
@@ -29,7 +30,9 @@ const AdminSubmissionList = async () => {
                 }
             </div>
         ) : (
-            <div></div>
+            <div className="flex justify-center">
+                <Image src={'/yoga.svg'} height={500} width={800} alt="yoga" />
+            </div>
         )}
     </div>
   )
