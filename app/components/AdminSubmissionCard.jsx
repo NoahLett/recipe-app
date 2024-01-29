@@ -6,14 +6,14 @@ import { IoCloseOutline } from "react-icons/io5";
 import { FaChevronDown } from "react-icons/fa6";
 import { FaChevronUp } from "react-icons/fa6";
 
-const UserSubmissionCard = ({ id, name, author, pending, denied, ingredients, steps }) => {
+const AdminSubmissionCard = ({ id, name, author, pending, denied, ingredients, steps }) => {
 
   const router = useRouter();
   const [showIngredients, setShowIngredients] = useState(false);
   const [showSteps, setShowSteps] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleChangeView = async () => {
-    let includeTrue = false;
     try {
       await fetch(`/api/change-user-view/${id}`, {
         method: 'POST',
@@ -21,7 +21,7 @@ const UserSubmissionCard = ({ id, name, author, pending, denied, ingredients, st
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          includeTrue,
+          includeTrue: isChecked,
         }),
       });
       router.refresh();
@@ -56,7 +56,11 @@ const UserSubmissionCard = ({ id, name, author, pending, denied, ingredients, st
     <div className="bg-white m-2 p-4 rounded-md shadow-md max-w-[25rem] min-w-[25rem]">
       <div className="flex justify-between">
         <h2 className="m-0 text-2xl font-semibold">{name}</h2>
-        <IoCloseOutline className="text-2xl cursor-pointer hover:text-red-500 transition-all duration-150" onClick={handleChangeView} />
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
       </div>
       <div className="flex justify-around">
         <div className="my-2">
@@ -98,4 +102,4 @@ const UserSubmissionCard = ({ id, name, author, pending, denied, ingredients, st
   )
 }
 
-export default UserSubmissionCard
+export default AdminSubmissionCard
