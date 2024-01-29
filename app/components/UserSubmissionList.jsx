@@ -3,6 +3,7 @@ import UserSubmissionCard from "./UserSubmissionCard";
 import { getServerSession } from "next-auth";
 import { options } from "../api/auth/[...nextauth]/options";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const UserSubmissionList = async () => {
@@ -37,15 +38,25 @@ const UserSubmissionList = async () => {
                     </div>
                 ) : (
                     <div className="flex flex-col justify-center items-center">
-                        <h1 className="text-3xl font-semibold">No Viewable Submissions Here!</h1>
-                        <p className="text-xl font-medium">Time to Get Typing!</p>
-                        <Image src={'/writing.svg'} height={300} width={1000} priority={true} alt="No Show" />
+                        <h1 className="text-3xl font-semibold">Got a Favorite Recipe?</h1>
+                        <div className="bg-white shadow-md mt-4 rounded-md flex flex-col items-center justify-center">
+                            <Image src={'/on-phone.svg'} height={300} width={500} priority={true} alt="No Show" />
+                            <Link href={'/add-recipe'} className="text-xl font-medium border-[1px] border-white bg-sky-300 hover:bg-sky-400 transition-all duration-150 p-2 mb-4 rounded-md m-1">Add it Now!</Link>
+                        </div>
                     </div>
                 )}
             </div>
         )
     }
-  return
+  return (
+    <div className="flex flex-col justify-center items-center p-4 w-full">
+        <h1 className="text-3xl font-semibold">Got a Favorite Recipe?</h1>
+        <div className="bg-white shadow-md mt-4 rounded-md flex flex-col items-center justify-center">
+            <Image src={'/on-phone.svg'} height={300} width={500} priority={true} alt="No Show" />
+            <Link href={'/add-recipe'} className="text-xl font-medium border-[1px] border-white bg-sky-300 hover:bg-sky-400 transition-all duration-150 p-2 mb-4 rounded-md m-1">Add it Now!</Link>
+        </div>
+    </div>
+  )
 }
 
 export default UserSubmissionList
