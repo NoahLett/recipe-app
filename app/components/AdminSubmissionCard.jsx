@@ -12,6 +12,9 @@ const AdminSubmissionCard = ({ id, name, author, authorVisible, pending, denied,
   const [showIngredients, setShowIngredients] = useState(false);
   const [showSteps, setShowSteps] = useState(false);
   const [isChecked, setIsChecked] = useState(authorVisible);
+  const [isPending, setIsPending] = useState(pending);
+  const [isDenied, setIsDenied] = useState(denied);
+  const [status, setStatus] = useState();
 
   const handleChangeView = async () => {
     try {
@@ -45,6 +48,24 @@ const AdminSubmissionCard = ({ id, name, author, authorVisible, pending, denied,
     }
   };
 
+  const handleApprovalStatus = async () => {
+    try {
+      await fetch(`/api/change-approval-status/${id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          pendingStatus: isPending,
+          deniedStatus: isDenied,
+        }),
+      });
+      router.refresh();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleToggleIngredients = () => {
     setShowIngredients(!showIngredients);
   };
@@ -52,6 +73,28 @@ const AdminSubmissionCard = ({ id, name, author, authorVisible, pending, denied,
   const handleToggleSteps = () => {
     setShowSteps(!showSteps);
   };
+
+  const handleStatusChange = (e) => {
+  setStatus(e.target.value);
+  if (e.target.value === "Approved") {
+    setIsPending(false);
+    setIsDenied(false);
+  } else if (e.target.value === "Denied") {
+    setIsPending(false);
+    setIsDenied(true);
+  } else {
+    setIsPending(true);
+    setIsDenied(false);
+  }
+};
+
+const handleSave = async () => {
+  try {
+    await Promise.all([handleChangeView(), handleApprovalStatus()]);
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   return (
     <div className="bg-white m-2 p-4 rounded-md shadow-md max-w-[25rem] min-w-[25rem]">
@@ -93,18 +136,26 @@ const AdminSubmissionCard = ({ id, name, author, authorVisible, pending, denied,
         <div>
           <span className="text-gray-700 mb-2">{author}</span>
           <div className="flex items-center">
-            <label className="mr-3">Show Author</label>
+            <label className="mr-3">Show</label>
             <input
               type="checkbox"
               checked={isChecked}
               onChange={() => setIsChecked(!isChecked)}
             />
           </div>
-        </div>
-        <div className="flex justify-end m-2">
-          <button className="bg-sky-300 py-1 px-2 border-[1px] border-sky-500 rounded-md" onClick={handleChangeView}>Save</button>
+          <div>
+            <select value={status} onChange={handleStatusChange}>
+              <option value="">Select One</option>
+              <option value="Approved">Approved</option>
+              <option value="Denied">Denied</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </div>
         </div>
       </div>
+      <div className="flex justify-end m-2">
+          <button className="bg-sky-300 py-1 px-2 border-[1px] border-sky-500 rounded-md" onClick={handleSave}>Save</button>
+        </div>
     </div>
   )
 }
