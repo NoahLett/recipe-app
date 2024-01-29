@@ -18,6 +18,7 @@ const AdminSubmissionList = async () => {
                               name={submission.name}
                               author={submission.author}
                               authorId={submission.authorId}
+                              authorVisible={submission.authorVisible}
                               pending={submission.pending}
                               denied={submission.denied}
                               ingredients={submission.ingredients}

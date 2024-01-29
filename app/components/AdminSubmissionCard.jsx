@@ -6,12 +6,12 @@ import { FaChevronDown } from "react-icons/fa6";
 import { FaChevronUp } from "react-icons/fa6";
 import { IoCloseOutline } from "react-icons/io5";
 
-const AdminSubmissionCard = ({ id, name, author, pending, denied, ingredients, steps }) => {
+const AdminSubmissionCard = ({ id, name, author, authorVisible, pending, denied, ingredients, steps }) => {
 
   const router = useRouter();
   const [showIngredients, setShowIngredients] = useState(false);
   const [showSteps, setShowSteps] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(authorVisible);
 
   const handleChangeView = async () => {
     try {
@@ -30,6 +30,21 @@ const AdminSubmissionCard = ({ id, name, author, pending, denied, ingredients, s
     }
   };
 
+  const handleAdminView = async () => {
+    console.log(id);
+    try {
+      await fetch(`/api/change-admin-view/${id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      router.refresh();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleToggleIngredients = () => {
     setShowIngredients(!showIngredients);
   };
@@ -41,7 +56,7 @@ const AdminSubmissionCard = ({ id, name, author, pending, denied, ingredients, s
   return (
     <div className="bg-white m-2 p-4 rounded-md shadow-md max-w-[25rem] min-w-[25rem]">
       <div className="flex justify-end">
-        <IoCloseOutline className="text-2xl cursor-pointer hover:text-red-500 transition-all duration-150" onClick={handleChangeView} />
+        <IoCloseOutline className="text-2xl cursor-pointer hover:text-red-500 transition-all duration-150" onClick={handleAdminView} />
       </div>
       <div className="flex justify-between">
         <h2 className="m-0 text-2xl font-semibold">{name}</h2>
