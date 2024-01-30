@@ -21,14 +21,14 @@ function AuthButton() {
         return (
             <div onClick={signOut} className="flex items-center">
                 <Image className="cursor-pointer mx-2 object-fit rounded-full border-[1px] border-sky-400" priority={true} width={40} height={40} src={session?.user?.image} alt="profile picture" />
-                <span className="mx-1 hover:text-gray-500 cursor-pointer transition-all duration-150 text-lg">{session?.user?.name}</span>
+                <span className="mx-1 hover:text-gray-500 cursor-pointer transition-all duration-150 text-xl">{session?.user?.name}</span>
             </div>
         );
     }
     return (
         <div onClick={signIn} className="flex items-center">
             <GiChefToque className="cursor-pointer mx-2 text-[2.48rem] rounded-full border-[1px] border-sky-400" />
-            <span className="mx-1 hover:text-gray-500 cursor-pointer transition-all duration-150 text-lg">Sign In</span>
+            <span className="mx-1 hover:text-gray-500 cursor-pointer transition-all duration-150 text-xl">Sign In</span>
         </div>
     )
 }
@@ -53,6 +53,9 @@ const Navbar = () => {
             click ? 'right-[0%] max-lg:bg-slate-200' : 'right-[100%]'
           } justify-center lg:w-auto w-full flex lg:items-center px-5`}>
                 <ul className="flex lg:flex-row flex-col justify-center items-center lg:gap-[2vw] gap-6 mt-5 lg:m-0">
+                    <li>
+                        <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-xl ${pathname === "/view-all" ? ACTIVE : INACTIVE}`} href="/view-all">All Recipes</Link>
+                    </li>
                     <li>
                         <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-xl ${pathname === "/add-recipe" ? ACTIVE : INACTIVE}`} href="/add-recipe">Make a Recipe</Link>
                     </li>

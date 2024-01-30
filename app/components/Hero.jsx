@@ -3,6 +3,7 @@
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Search from './Search';
+import Link from 'next/link';
 
 const Hero = () => {
 
@@ -10,7 +11,7 @@ const Hero = () => {
 
   if (session) {
     return (
-      <div className='w-full bg-white py-7 md:py-15'>
+      <div className='w-full bg-white py-2 md:py-5'>
       <div className='max-w-[100%] mx-auto grid grid-cols-2'>
         <div className='flex flex-col justify-center ml-[2rem] md:ml-[7rem]'>
           <p className='text-md md:text-2xl text-[#6CA7A9] font-medium my-1'>EXQUISITE RECIPES</p>
@@ -19,14 +20,15 @@ const Hero = () => {
         </div>
         <Image src={'/chef.svg'} height={300} width={500} priority={true} alt='hero image' />
       </div>
-      <div className='flex justify-center'>
+      <div className='flex flex-col items-center'>
         <Search />
+        <Link className='my-3 font-medium text-lg underline' href='/view-all'>View All</Link>
       </div>
     </div>
     )
   } else {
     return (
-      <div className='w-full bg-white py-7 md:py-20'>
+      <div className='w-full bg-white py-2 md:py-5'>
       <div className='max-w-[100%] mx-auto grid grid-cols-2'>
         <div className='flex flex-col justify-center ml-[2rem] md:ml-[7rem]'>
           <p className='text-md md:text-2xl text-[#6CA7A9] font-medium my-1'>EXQUISITE RECIPES</p>
@@ -35,8 +37,9 @@ const Hero = () => {
         </div>
         <Image src={'/chef.svg'} height={300} width={500} priority={true} alt='hero image' />
       </div>
-      <div className='flex justify-center'>
+      <div className='flex flex-col items-center'>
         <Search />
+        <Link className='my-3 font-medium text-lg underline' href='/view-all'>View All</Link>
       </div>
     </div>
     )
