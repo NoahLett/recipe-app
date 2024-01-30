@@ -1,26 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CooksCabinet
 
-## A Quick Intro
+CooksCabinet is a web application developed using Next.js 14, Prisma ORM, Postgresql, Redux, Tailwind CSS, and NextAuth. It provides a convenient platform for users to manage and share their favorite recipes, create shopping lists, and more.
 
-CooksCabinet is a full stack Next.js 14 application that utilizes Prisma ORM, a PostgreSQL database, and Redux for global state management.
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Authentication](#authentication)
+- [Recipe Submissions](#recipe-submissions)
+- [Shopping Lists](#shopping-lists)
+- [Search](#search)
+- [Admin Privileges](#admin-privileges)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Introduction
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+CooksCabinet was created out of our passion for cooking and the desire to have a centralized hub for our favorite recipes. The app allows users to dynamically create shopping lists containing all the ingredients needed for chosen recipes, providing a seamless cooking experience.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
 
-## Learn More
+- View a diverse collection of favorite recipes with detailed ingredients and steps.
+- Authenticate through Google or Github providers using NextAuth.
+- Submit recipe requests for approval by the admin.
+- Create, update, read, and delete personal shopping lists based on chosen recipes.
+- Search for recipes by name, author, or genre (Italian, American, Sides, etc).
+- Receive, read, and delete notifications on the status of recipe submissions.
+- Admins can approve or deny submissions from other users.
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js 14
+- Prisma ORM
+- Postgresql
+- Redux
+- Tailwind CSS
+- NextAuth
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Installation
 
-## Deploy on Vercel
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Set up your database and configure the connection in Prisma.
+4. Run migrations using `npx prisma migrate dev`.
+5. Start the Next.js development server with `npm run dev`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Launch the app and explore the features available. Create an account or log in using Google or Github to unlock additional functionalities.
+
+## Authentication
+
+CooksCabinet uses NextAuth to enable authentication through Google or Github. Simply click on the preferred provider to authenticate.
+
+## Recipe Submissions
+
+Authenticated users can submit recipe requests for approval by the admin. Admins can manage submissions through the admin panel.
+
+## Shopping Lists
+
+Create, update, read, and delete your personal shopping lists, dynamically generated from your chosen recipes.
+
+## Search
+
+Utilize the search functionality to find specific recipes based on name, author, or genre.
+
+## Admin Privileges
+
+Users with admin privileges can approve or deny recipe submissions from other users, ensuring content quality and relevance.
