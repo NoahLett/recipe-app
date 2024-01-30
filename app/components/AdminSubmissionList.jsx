@@ -30,7 +30,8 @@ const AdminSubmissionList = async () => {
                 }
             </div>
         ) : (
-            <div className="flex justify-center">
+            <div className="flex flex-col items-center">
+                <h2 className="text-xl font-medium">No New Submissions</h2>
                 <Image src={'/yoga.svg'} height={500} width={800} alt="yoga" />
             </div>
         )}

@@ -17,14 +17,14 @@ const Search = () => {
 
   return (
     <form onSubmit={onSearch}>
-      <div className="flex items-center">
+      <div className="flex items-center relative">
           <input
               className="bg-slate-100 px-5 py-1 sm:px-5 sm:py-3 rounded-3xl text-slate-800 border-[1px] border-slate-300 min-w-[17rem]"
               placeholder="What sounds good?"
               value={searchQuery}
               onChange={event => setSearchQuery(event.target.value)}
           />
-          <FaSearch onClick={onSearch} className="text-2xl ml-2" />
+          <FaSearch onClick={onSearch} className="right-[1rem] absolute text-xl text-slate-400 ml-2" />
       </div>
     </form>
   )
