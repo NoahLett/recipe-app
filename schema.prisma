@@ -19,6 +19,8 @@ model Recipe {
   published     Boolean     @default(false)
   author        String?
   authorId      String?
+  createdAt     DateTime    @default(now()) @map(name: "created_at")
+  genre         String?
 }
 
 model Ingredient {

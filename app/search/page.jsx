@@ -3,7 +3,6 @@ import Card from "../components/Card";
 
 const SearchPage = async ({ searchParams }) => {
 
-  console.log('q is: ', searchParams.q);
   const results = await getSearchResults(searchParams?.q);
   console.log(results);
 
