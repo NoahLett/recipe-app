@@ -6,8 +6,8 @@ export default async function Home() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen pt-[3.5rem]">
       <Hero />
-      <UserSubmissionList />
-      <RecentRecipes />
+        <UserSubmissionList />
+        <RecentRecipes />
     </main>
   )
 }

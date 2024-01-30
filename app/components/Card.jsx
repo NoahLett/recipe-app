@@ -4,8 +4,8 @@ import { BsThreeDots } from "react-icons/bs";
 
 export default function Card({id, name, ingredients, image_src, author}) {
   return (
-      <div className="max-w-xs rounded overflow-hidden shadow-lg m-2">
-        <Link href={`/recipes/${id}`}><img className="h-52 object-fill" src={image_src} alt="Recipe Card" /></Link>
+      <div className="max-w-xs min-w-xs rounded overflow-hidden shadow-lg m-2">
+        <Link href={`/recipes/${id}`}><img className="h-52" src={image_src} alt="Recipe Card" /></Link>
         <div className="px-6 py-4 bg-slate-100">
           <div className="flex justify-between">
             <Link className="mb-2" href={`/recipes/${id}`}><span className="font-bold text-xl">{name}</span></Link>
