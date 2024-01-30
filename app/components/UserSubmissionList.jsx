@@ -16,7 +16,7 @@ const UserSubmissionList = async () => {
             <div className="p-4 w-full">
                 {submissions && submissions.length ? (
                     <div>
-                        <h1 className="text-3xl font-semibold">Your Submissions</h1>
+                        <h1 className="text-3xl text-center font-semibold my-2">Your Submissions</h1>
                         <div className="flex flex-wrap justify-center">
                             {
                                 submissions.map((submission) => {
