@@ -2,6 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
+import Search from './Search';
 
 const Hero = () => {
 
@@ -18,6 +19,9 @@ const Hero = () => {
         </div>
         <Image src={'/chef.svg'} height={300} width={500} priority={true} alt='hero image' />
       </div>
+      <div className='flex justify-center'>
+        <Search />
+      </div>
     </div>
     )
   } else {
@@ -30,6 +34,9 @@ const Hero = () => {
           <p className='text-md md:text-xl text-slate-500 font-medium my-2'>Save Some Time. Get Browsin&apos;!</p>
         </div>
         <Image src={'/chef.svg'} height={300} width={500} priority={true} alt='hero image' />
+      </div>
+      <div className='flex justify-center'>
+        <Search />
       </div>
     </div>
     )
