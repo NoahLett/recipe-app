@@ -29,7 +29,7 @@ import Link from "next/link";
             <h2 className="text-xl font-semibold mb-2 text-slate-600">Ingredients</h2>
             <ul className="list-disc ml-6">
               {recipe.ingredients.map((ingredient, index) => (
-                <li className="text-slate-600" key={index}>
+                <li className="text-slate-600 mb-2" key={index}>
                   {ingredient.quantity}{' '}
                   {ingredient.measurement !== 'null' && ingredient.measurement}{' '}
                   {ingredient.name}
