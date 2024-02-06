@@ -41,7 +41,7 @@ import Link from "next/link";
             <h2 className="text-xl font-semibold mb-2 text-slate-600">Steps</h2>
             <ol className="list-decimal ml-6">
               {recipe.steps.map((step, index) => (
-                <li className="text-slate-600" key={index}>{step}</li>
+                <li className="text-slate-600 mb-2" key={index}>{step}</li>
               ))}
             </ol>
           </div>
