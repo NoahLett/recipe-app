@@ -17,11 +17,7 @@ const ShoppingListAddButton = ({ ingredients }) => {
     });
     setIsAdded(true);
   };
-
-  useEffect(() => {
-    console.log('Current Shopping List:', shoppingList);
-  }, [shoppingList]);
-
+  
   return (
     <button onClick={handleAddToShoppingList}>
       {isAdded ? (

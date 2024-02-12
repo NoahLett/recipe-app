@@ -27,9 +27,7 @@ const shoppingListSlice = createSlice({
       saveShoppingList(state.shoppingList);
     },
     removeIngredient: (state, action) => {
-      console.log('action payload:', action.payload);
       const ingredientName = action.payload;
-      console.log("ingredientName:", ingredientName);
       // Filter out the ingredient by name
       state.shoppingList = state.shoppingList.filter(
         (item) => item.name !== ingredientName
