@@ -27,7 +27,7 @@ function AuthButton() {
     }
     return (
         <div onClick={signIn} className="flex items-center">
-            <GiChefToque className="cursor-pointer mx-2 text-[2.48rem] rounded-full border-[1px] border-sky-400" />
+            <Image className="cursor-pointer mx-2 object-fit rounded-full border-[1px] border-sky-400" priority={true} width={40} height={40} src={'/chef-hat-2.png'} alt="profile picture" />
             <span className="mx-1 hover:text-gray-500 cursor-pointer transition-all duration-150 text-xl">Sign In</span>
         </div>
     )

@@ -9,7 +9,7 @@ import Link from "next/link";
 
     return (
       <div className="min-h-screen pt-20 px-2">
-        <div className="max-w-max mx-auto mt-8 p-6 bg-white rounded-md shadow-lg">
+        <div className="max-w-[50rem] mx-auto mt-8 p-6 bg-white rounded-md shadow-lg">
           <div className="flex justify-between">
           <Link href="/" className="inline-flex hover:text-slate-600 transition-all duration-300"><IoIosArrowBack className="text-2xl"/>Back</Link>
           <ShoppingListAddButton ingredients={recipe.ingredients} />
@@ -24,9 +24,9 @@ import Link from "next/link";
             className="rounded-md"
           />
         </div>
-        <div className="grid grid-cols-2 gap-4 mt-4">
+        <div className="mt-4 md:grid grid-cols-2">
           <div>
-            <h2 className="text-xl font-semibold mb-2 text-slate-600">Ingredients</h2>
+            <h2 className="text-xl font-semibold mt-7 mb-2 text-slate-600">Ingredients</h2>
             <ul className="list-disc ml-6">
               {recipe.ingredients.map((ingredient, index) => (
                 <li className="text-slate-600 mb-2" key={index}>
@@ -38,7 +38,7 @@ import Link from "next/link";
             </ul>
           </div>
           <div>
-            <h2 className="text-xl font-semibold mb-2 text-slate-600">Steps</h2>
+            <h2 className="text-xl font-semibold mt-7 mb-2 text-slate-600">Steps</h2>
             <ol className="list-decimal ml-6">
               {recipe.steps.map((step, index) => (
                 <li className="text-slate-600 mb-2" key={index}>{step}</li>
