@@ -5,7 +5,7 @@ const RecentRecipes = async () => {
     const recentRecipes = await getRecentRecipes();
   return (
     <div>
-        <h1 className='text-3xl text-center font-semibold mt-6 mb-4'>Recent Additions</h1>
+        <h1 className='text-2xl text-center font-semibold pt-6 pb-4 bg-white'>Recent Additions</h1>
         <Carousel recipes={recentRecipes} />
     </div>
   )

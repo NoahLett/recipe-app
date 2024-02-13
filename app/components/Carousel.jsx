@@ -11,10 +11,6 @@ const Carousel = ({ recipes }) => {
     const dragX = useMotionValue(0);
     const dragXProgress = useMotionValue(0);
 
-    const overlay = {
-
-    }
-
     useMotionValueEvent(dragX, "change", (latest) => {
         if (typeof latest === 'number' && dragging) {
             dragXProgress.set(latest);
@@ -64,7 +60,7 @@ const Carousel = ({ recipes }) => {
     }
 
   return (
-    <div className='relative overflow-hidden min-h-[20rem] w-[99.99vw]'>
+    <div className='relative overflow-hidden min-h-[15rem] w-[99.99vw]'>
         <motion.div 
           className='flex items-center cursor-grab active:cursor-grabbing'
           drag='x'
@@ -93,9 +89,9 @@ const Carousel = ({ recipes }) => {
                             backgroundPosition: 'center',
                             position: 'relative',
                             }}
-                          className='aspect-video w-full shrink-0 rounded-lg bg-slate-100 object-cover'
+                          className='aspect-video w-full shrink-0 rounded-sm bg-slate-100 object-cover'
                           animate={{
-                            scale: imgIndex === i ? '1' : '0.85',
+                            scale: '1',
                           }}
                           transition={SPRING_OPTIONS}
                         >
@@ -109,7 +105,7 @@ const Carousel = ({ recipes }) => {
                                 content: " ",
                                 background: 'rgba(0, 0, 0, 0.35)', 
                                 zIndex: -10,
-                                borderRadius: '0.5rem',
+                                borderRadius: '0.25rem',
                               }}
                             />
                             <div className='absolute top-[5%] md:top-[10%] left-[7%] max-w-[10rem] pb-2'>
@@ -124,18 +120,13 @@ const Carousel = ({ recipes }) => {
                 })
             }
         </motion.div>
-        <Dots 
-          imgIndex={imgIndex}
-          setImgIndex={setImgIndex}
-          recipes={recipes}
-        />
     </div>
   )
 }
 
 const Dots = ({ recipes, imgIndex, setImgIndex }) => {
     return (
-        <div className='mt-4 flex w-full justify-center gap-2'>
+        <div className='mt-4 flex w-full justify-center gap-2 absolute bottom-[1.75rem]'>
             {
                 recipes.map((recipe, index) => {
                     return (
