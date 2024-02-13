@@ -11,6 +11,16 @@ const UserSubmissionList = async () => {
     const session = await getServerSession(options);
     const submissions = await getUserSubmissions(session?.user?.id);
 
+    const imageUrl = '/share-recipe.jpg';
+
+    const backgroundDiv = {
+        backgroundImage: `url(${imageUrl})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        position: 'relative',
+        width: '100%',
+    }
+
     if (session) {
         return (
             <div className="p-4 w-full">
@@ -48,7 +58,25 @@ const UserSubmissionList = async () => {
             </div>
         )
     }
-  return 
+  return (
+    <div className="w-full">
+        <h1 className="text-center text-2xl font-semibold py-3 bg-white">Can&apos;t Find Your Fav?</h1>
+        <div className="w-full bg-cover bg-center relative h-[15rem]" style={backgroundDiv}>
+        <div 
+            style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            content: " ",
+            background: 'rgba(0, 0, 0, 0.35)', 
+            borderRadius: '0.25rem',
+            }}
+        />
+        </div>
+    </div>
+  )
 }
 
 export default UserSubmissionList
