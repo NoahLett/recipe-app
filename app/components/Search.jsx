@@ -19,7 +19,7 @@ const Search = () => {
     <form onSubmit={onSearch}>
       <div className="flex items-center relative">
           <input
-              className="bg-slate-100 px-5 py-1 sm:px-5 sm:py-3 rounded-3xl text-slate-800 border-[1px] border-slate-900 md:min-w-[22rem] min-w-[17rem]"
+              className="bg-slate-100 px-5 py-1 sm:px-5 sm:py-3 rounded-3xl text-slate-800  md:min-w-[22rem] min-w-[17rem]"
               placeholder="What sounds good?"
               value={searchQuery}
               onChange={event => setSearchQuery(event.target.value)}
