@@ -49,7 +49,7 @@ const UserSubmissionList = async () => {
                 
                 ) : (
                     <div className="w-full">
-                        <h1 className="text-center text-2xl font-semibold py-3 bg-white">Can&apos;t Find Your Fav?</h1>
+                        <h1 className="text-center text-2xl font-semibold py-3 bg-white">Your Submissions</h1>
                         <div className="w-full bg-cover bg-center relative h-[15rem]" style={backgroundDiv}>
                         <div 
                             style={{
@@ -64,7 +64,7 @@ const UserSubmissionList = async () => {
                             }}
                         />
                         <div className="absolute top-[30%] pb-2 w-full">
-                            <h3 className='text-white text-center font-semibold text-4xl md:text-5xl lg:text-7xl'>Sharing Is Caring!</h3>
+                            <h3 className='text-white text-center font-semibold text-4xl md:text-5xl lg:text-7xl'>Nothing to See!</h3>
                             <div className="flex justify-evenly mt-5">
                                 <Link className="font-medium py-2 px-4 md:py-3 md:px-7 md:text-xl bg-slate-100 rounded-md shadow-lg" href='/add-recipe'>Submit Now</Link>
                                 <Link className="font-medium py-2 px-4 md:py-3 md:px-7 md:text-xl bg-slate-100 rounded-md shadow-lg" href='/faq'>Learn More</Link>
