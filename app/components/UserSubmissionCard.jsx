@@ -53,7 +53,7 @@ const UserSubmissionCard = ({ id, name, author, pending, denied, ingredients, st
   const statusInfo = getStatusAndColor();
 
   return (
-    <div className="bg-white m-2 p-4 rounded-md shadow-md max-w-[25rem] min-w-[25rem]">
+    <div className="bg-white m-2 p-4 rounded-md shadow-md max-w-[25rem] min-w-[22rem]">
       <div className="flex justify-between">
         <h2 className="m-0 text-2xl font-semibold">{name}</h2>
         <IoCloseOutline className="text-2xl cursor-pointer hover:text-red-500 transition-all duration-150" onClick={handleChangeView} />
