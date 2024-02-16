@@ -108,7 +108,7 @@ const Carousel = ({ recipes }) => {
                                 borderRadius: '0.25rem',
                               }}
                             />
-                            <div className='absolute top-[5%] md:top-[10%] left-[7%] max-w-[10rem] pb-2'>
+                            <div className='absolute top-[12%] md:top-[10%] left-[7%] max-w-[10rem] pb-2'>
                                 <h3 className='text-white font-semibold text-5xl md:text-7xl lg:text-8xl'>{recipe.name}</h3>
                                 <h4 className='text-white font-medium text-xl md:text-2xl lg:text-3xl italic mt-2 md:mt-10'>{recipe.genre}</h4>
                             </div>
