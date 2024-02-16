@@ -83,25 +83,26 @@ const RecipeForm = () => {
     <div className='min-w-[300px] max-w-screen-sm mx-auto p-2 pt-4'>
       <form className='shadow-md rounded-md bg-white p-4' onSubmit={handleSubmit}>
         <div className='mb-5'>
-          <label className='text-lg font-medium'>Recipe Name</label>
-            <div className='my-2'>
+            <div className='mt-[2.5rem] mb-2'>
               <input
                 type="text"
                 value={formData.recipeName}
                 onChange={(e) => handleInputChange(e, null, 'name')}
-                className='border-solid border-2 border-slate-400 rounded min-w-[342.8px] h-8'
+                className='border-b-2 border-slate-400 w-full text-3xl font-bold px-1 outline-none	'
+                placeholder='Recipe Name'
               />
             </div>
           </div>
         <div className='flex flex-col'>
-          <label className='text-lg font-medium'>Ingredients</label>
+          <label className='text-lg font-medium mt-5'>Ingredients</label>
           {formData.ingredients.map((ingredient, index) => (
             <div className='my-2 flex' key={index}>
               <input
                 type="text"
                 value={ingredient}
                 onChange={(e) => handleInputChange(e, index, 'ingredients')}
-                className='border-solid border-2 border-slate-400 rounded w-11/12 h-8 p-1'
+                className='border-b-2 border-slate-400 w-full text-lg px-1 outline-none	'
+                placeholder='E.g. 2 Lbs Chicken Breast'
               />
               {index > 0 && (
                 <button 
@@ -125,12 +126,14 @@ const RecipeForm = () => {
         <div className='flex flex-col'>
           <label className='text-lg font-medium'>Steps</label>
           {formData.steps.map((step, index) => (
-            <div className='flex my-2' key={index}>
+            <div className='flex my-2 content-start' key={index}>
+              <span className='text-lg me-2'>{index + 1}.</span>
               <input
                 type="text"
                 value={step}
                 onChange={(e) => handleInputChange(e, index, 'steps')}
-                className='border-solid border-2 border-slate-400 rounded w-11/12 h-8 p-1'
+                className='border-b-2 border-slate-400 w-full text-lg px-1 outline-none'
+                placeholder='E.g. Pre-heat your oven to 400&deg; F'
               />
               {index > 0 && (
                 <button
