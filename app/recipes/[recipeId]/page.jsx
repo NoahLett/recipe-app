@@ -15,13 +15,13 @@ import Link from "next/link";
           <ShoppingListAddButton ingredients={recipe.ingredients} />
           </div>
         <h1 className="text-3xl font-bold my-4 text-slate-600">{recipe.name}</h1>
-        <div className="mt-6 flex justify-center">
+        <div className="mt-6 flex items-center justify-center">
           <img
             src={recipe.image_src}
             alt="Dish"
             width={400}
             height={300}
-            className="rounded-md"
+            className="w-full object-cover h-52 rounded-md"
           />
         </div>
         <div className="mt-4 md:grid grid-cols-2">
