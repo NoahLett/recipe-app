@@ -60,7 +60,7 @@ const Carousel = ({ recipes }) => {
     }
 
   return (
-    <div className='relative overflow-hidden min-h-[13rem] w-[99.99vw]'>
+    <div className='relative overflow-hidden min-h-[13rem] w-full'>
         <motion.div 
           className='flex items-center cursor-grab active:cursor-grabbing'
           drag='x'
