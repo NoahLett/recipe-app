@@ -5,7 +5,7 @@ import { BsThreeDots } from "react-icons/bs";
 export default function Card({id, name, ingredients, image_src, author}) {
   return (
       <div className="w-[18rem] h-[19rem] rounded overflow-hidden shadow-lg m-2 bg-white relative">
-        <div className="flex my-auto absolute right-[0] bg-white p-4 rounded-bl-lg shadow-lg">
+        <div className="flex my-auto absolute right-[0] bg-white p-4 rounded-bl shadow-lg">
           <ShoppingListAddButton ingredients={ingredients} />
         </div>
         <Link href={`/recipes/${id}`}>

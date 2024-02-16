@@ -21,7 +21,7 @@ const ShoppingListRemoveButton = ({ ingredients }) => {
     };
 
     return (
-        <button className='ml-4 text-slate-500 text-xl' onClick={handleRemoveItem}><FaRegTrashCan></FaRegTrashCan></button>
+        <button className='absolute right-2 top-[30%] text-slate-500 text-xl' onClick={handleRemoveItem}><FaRegTrashCan></FaRegTrashCan></button>
     );
 };
 
