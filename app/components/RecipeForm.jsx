@@ -16,6 +16,7 @@ const RecipeForm = () => {
   };
 
   const [formData, setFormData] = useState(initialFormData);
+  const [success, setSuccess] = useState(false);
 
   const handleInputChange = (e, index, type) => {
     const { value } = e.target;
@@ -73,97 +74,108 @@ const RecipeForm = () => {
             'Content-Type': 'application/json'
             },
             body: JSON.stringify({ authorName, id, recipeName, ingredients, steps })
-        })  
+        })
+        setFormData(initialFormData);
+        setSuccess(true);  
     } catch (error) {
         console.error(error)
     }
   };
 
-  return (
-    <div className='min-w-[300px] max-w-screen-sm mx-auto p-2 pt-4'>
-      <h1 className="text-3xl text-center font-semibold mb-5">Let&apos;s Make a Recipe!</h1>
-      <form className='shadow-md rounded-md bg-white p-4' onSubmit={handleSubmit}>
-        <div className='mb-5'>
-            <div className='mt-[2.5rem] mb-2'>
-              <input
-                type="text"
-                value={formData.recipeName}
-                onChange={(e) => handleInputChange(e, null, 'name')}
-                className='border-b-2 border-slate-400 w-full text-3xl font-bold px-1 outline-none	'
-                placeholder='Recipe Name'
-              />
+  if (success) {
+    return (
+      <div className='flex flex-col items-center'>
+        <h1 className='text-5xl font-semibold mb-4'>Sounds Yummy!</h1>
+        <h4 className='text-lg font-semibold text-center'>You&apos;ll see a pending submission on your Home Page. If you close it, it will reappear once admin approves or declines.</h4>
+      </div>
+    )
+  } else {
+      return (
+        <div className='min-w-[300px] max-w-screen-sm mx-auto p-2 pt-4'>
+          <h1 className="text-3xl text-center font-semibold mb-5">Let&apos;s Make a Recipe!</h1>
+          <form className='shadow-md rounded-md bg-white p-4' onSubmit={handleSubmit}>
+            <div className='mb-5'>
+                <div className='mt-[2.5rem] mb-2'>
+                  <input
+                    type="text"
+                    value={formData.recipeName}
+                    onChange={(e) => handleInputChange(e, null, 'name')}
+                    className='border-b-2 border-slate-400 w-full text-3xl font-bold px-1 outline-none'
+                    placeholder='Recipe Name'
+                  />
+                </div>
+              </div>
+            <div className='flex flex-col'>
+              <label className='text-lg font-medium mt-5'>Ingredients</label>
+              {formData.ingredients.map((ingredient, index) => (
+                <div className='my-2 flex' key={index}>
+                  <input
+                    type="text"
+                    value={ingredient}
+                    onChange={(e) => handleInputChange(e, index, 'ingredients')}
+                    className='border-b-2 border-slate-400 w-full text-lg px-1 outline-none	'
+                    placeholder='E.g. 2 Lbs Chicken Breast'
+                  />
+                  {index > 0 && (
+                    <button 
+                      type="button" 
+                      onClick={() => handleRemoveInput(index, 'ingredients')}
+                      className='ml-2 hover:text-red-400 transition-all duration-150'
+                      >
+                      <FaRegTrashCan className='text-xl' />
+                    </button>
+                  )}
+                </div>
+              ))}
+              <button 
+                type="button" 
+                onClick={() => handleAddInput('ingredients')}
+                className='self-center'>
+                <IoAddCircleOutline className='text-2xl hover:text-green-400 transition-all duration-150' />
+              </button>
             </div>
-          </div>
-        <div className='flex flex-col'>
-          <label className='text-lg font-medium mt-5'>Ingredients</label>
-          {formData.ingredients.map((ingredient, index) => (
-            <div className='my-2 flex' key={index}>
-              <input
-                type="text"
-                value={ingredient}
-                onChange={(e) => handleInputChange(e, index, 'ingredients')}
-                className='border-b-2 border-slate-400 w-full text-lg px-1 outline-none	'
-                placeholder='E.g. 2 Lbs Chicken Breast'
-              />
-              {index > 0 && (
-                <button 
-                  type="button" 
-                  onClick={() => handleRemoveInput(index, 'ingredients')}
-                  className='ml-2 hover:text-red-400 transition-all duration-150'
-                  >
-                  <FaRegTrashCan className='text-xl' />
-                </button>
-              )}
-            </div>
-          ))}
-          <button 
-            type="button" 
-            onClick={() => handleAddInput('ingredients')}
-            className='self-center'>
-            <IoAddCircleOutline className='text-2xl hover:text-green-400 transition-all duration-150' />
-          </button>
-        </div>
 
-        <div className='flex flex-col'>
-          <label className='text-lg font-medium'>Steps</label>
-          {formData.steps.map((step, index) => (
-            <div className='flex my-2 content-start' key={index}>
-              <span className='text-lg me-2'>{index + 1}.</span>
-              <input
-                type="text"
-                value={step}
-                onChange={(e) => handleInputChange(e, index, 'steps')}
-                className='border-b-2 border-slate-400 w-full text-lg px-1 outline-none'
-                placeholder='E.g. Pre-heat your oven to 400&deg; F'
-              />
-              {index > 0 && (
-                <button
-                 type="button" 
-                 onClick={() => handleRemoveInput(index, 'steps')}
-                 className='ml-2 hover:text-red-400 transition-all duration-150'>
-                  <FaRegTrashCan className='text-xl' />
-                </button>
-              )}
+            <div className='flex flex-col'>
+              <label className='text-lg font-medium'>Steps</label>
+              {formData.steps.map((step, index) => (
+                <div className='flex my-2 content-start' key={index}>
+                  <span className='text-lg me-2'>{index + 1}.</span>
+                  <input
+                    type="text"
+                    value={step}
+                    onChange={(e) => handleInputChange(e, index, 'steps')}
+                    className='border-b-2 border-slate-400 w-full text-lg px-1 outline-none'
+                    placeholder='E.g. Pre-heat your oven to 400&deg; F'
+                  />
+                  {index > 0 && (
+                    <button
+                    type="button" 
+                    onClick={() => handleRemoveInput(index, 'steps')}
+                    className='ml-2 hover:text-red-400 transition-all duration-150'>
+                      <FaRegTrashCan className='text-xl' />
+                    </button>
+                  )}
+                </div>
+              ))}
+              <button 
+                type="button" 
+                onClick={() => handleAddInput('steps')}
+                className='pb-2 self-center'>
+                <IoAddCircleOutline className='text-2xl hover:text-green-400 transition-all duration-150' />
+              </button>
             </div>
-          ))}
-          <button 
-            type="button" 
-            onClick={() => handleAddInput('steps')}
-            className='pb-2 self-center'>
-            <IoAddCircleOutline className='text-2xl hover:text-green-400 transition-all duration-150' />
-          </button>
+            
+            <div className='flex justify-end'>
+              <button 
+                type="submit"
+                className='bg-sky-300 p-2 rounded shadow-md text-xl lg:text-xl hover:bg-sky-400 ml-1 transition-all duration-150'>
+                  Submit
+              </button>
+            </div>
+          </form>
         </div>
-        
-        <div className='flex justify-end'>
-          <button 
-            type="submit"
-            className='bg-sky-300 p-2 rounded shadow-md text-xl lg:text-xl hover:bg-sky-400 ml-1 transition-all duration-150'>
-              Submit
-          </button>
-        </div>
-      </form>
-    </div>
-  );
+      );
+    }
 };
 
 export default RecipeForm;
