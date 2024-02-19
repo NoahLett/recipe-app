@@ -58,7 +58,7 @@ const UserSubmissionCard = ({ id, name, author, pending, denied, ingredients, st
         <h2 className="m-0 text-2xl font-semibold">{name}</h2>
         <IoCloseOutline className="text-2xl cursor-pointer hover:text-red-500 transition-all duration-150" onClick={handleChangeView} />
       </div>
-      <div className="flex justify-around">
+      <div className="flex flex-col pl-4 md:pl-0 mt-2 md:flex-row justify-around">
         <div className="my-2">
           <div className="flex items-center" onClick={handleToggleIngredients}>
             <p className="text-lg font-medium cursor-pointer">
