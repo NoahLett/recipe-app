@@ -13,7 +13,7 @@ const AddRecipePage = async () => {
   }
 
   return (
-    <div className="min-h-screen pt-20 px-2">
+    <div className="min-h-screen pt-20 px-2 mx-auto  max-w-[1024px]">
         <BackButton />
         <RecipeForm />
     </div>

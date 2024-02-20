@@ -32,7 +32,7 @@ const ViewAll = () => {
       }, [search])
   
     return (
-      <div className="min-h-screen pt-20 px-2">
+      <div className="min-h-screen max-w-[1024px] pt-20 px-2 mx-auto">
         <BackButton />
         <div className="flex flex-col items-center">
           <h1 className="text-3xl font-semibold">All Recipes</h1>

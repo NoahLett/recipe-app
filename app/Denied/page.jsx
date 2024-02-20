@@ -4,7 +4,7 @@ import BackButton from "../components/BackButton";
 
 const DeniedPage = () => {
   return (
-    <div className="min-h-screen pt-20 px-2">
+    <div className="min-h-screen max-w-[1024px] pt-20 px-2 mx-auto">
       <BackButton />
       <div className="flex flex-col items-center mt-5">
         <h1 className="text-3xl font-semibold text-center">Nothing to See Here!</h1>
