@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearShoppingList } from '../store/slice';
 import ShoppingListItem from './ShoppingListItem';

@@ -6,7 +6,6 @@ import React, { useState } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { GiChefToque } from "react-icons/gi";
 
 
 
@@ -49,9 +48,9 @@ const Navbar = () => {
                 <Link onClick={closeMobileMenu} className="cursor-pointer text-3xl font-bold" href="/">CooksCabinet</Link>
             </div>
             <div className="flex">
-            <div className={`nav-links duration-300 lg:static absolute lg:min-h-fit min-h-[100vh] top-14 ${
-            click ? 'right-[0%] max-lg:bg-slate-200' : 'right-[100%]'
-          } justify-center lg:w-auto w-full flex lg:items-center px-5`}>
+            <div className={`nav-links duration-300 lg:static absolute lg:min-h-fit min-h-[100vh] top-14 ${click ? 'right-[0%] max-lg:bg-slate-200' : 'right-[100%]'} justify-center lg:w-auto w-full flex lg:items-center px-5`}
+                 onClick={closeMobileMenu}
+            >
                 <ul className="flex lg:flex-row flex-col justify-center items-center lg:gap-[2vw] gap-6 mt-5 lg:m-0">
                     <li>
                         <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-xl ${pathname === "/view-all" ? ACTIVE : INACTIVE}`} href="/view-all">All Recipes</Link>
