@@ -2,6 +2,7 @@ import getRecipe from "@/lib/getRecipe";
 import ShoppingListAddButton from "@/app/components/ShoppingListAddButton";
 import { IoIosArrowBack } from "react-icons/io";
 import Link from "next/link";
+import BackButton from "@/app/components/BackButton";
 
   export default async function Page({ params }) {
 
@@ -11,7 +12,7 @@ import Link from "next/link";
       <div className="min-h-screen pt-10 pb-4 px-2">
         <div className="max-w-[50rem] mx-auto mt-8 p-6 bg-white rounded-md shadow-lg">
           <div className="flex justify-between">
-          <Link href="/" className="inline-flex hover:text-slate-600 transition-all duration-300"><IoIosArrowBack className="text-2xl"/>Back</Link>
+          <BackButton />
           <ShoppingListAddButton ingredients={recipe.ingredients} />
           </div>
         <h1 className="text-3xl font-bold my-4 text-slate-600">{recipe.name}</h1>
