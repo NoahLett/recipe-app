@@ -8,7 +8,7 @@ const SearchPage = async ({ searchParams }) => {
   const results = await getSearchResults(searchParams?.q);
 
   return (
-    <div className="min-h-screen px-2 pt-20">
+    <div className="min-h-screen max-w-[1024px] pt-20 px-2 mx-auto">
       <BackButton />
       <h1 className="text-3xl font-semibold text-center my-5">Search Results</h1>
       <div className="flex flex-wrap items-center justify-center">
