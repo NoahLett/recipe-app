@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Card from "../components/Card";
+import BackButton from "../components/BackButton";
 
 
 const ViewAll = () => {
@@ -31,14 +32,17 @@ const ViewAll = () => {
       }, [search])
   
     return (
-      <div className="min-h-screen flex flex-col items-center pt-20">
-        <h1 className="text-3xl font-semibold">All Recipes</h1>
+      <div className="min-h-screen pt-20 px-2">
+        <BackButton />
+        <div className="flex flex-col items-center">
+          <h1 className="text-3xl font-semibold">All Recipes</h1>
           <input 
             className="bg-slate-100 my-6 px-5 py-1 sm:px-5 sm:py-3 rounded-3xl text-slate-800 border-[1px] border-slate-300 min-w-[17rem]"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="i.e.: Chicken Piccatta"
           />
+        </div>
         <div className="flex flex-wrap items-center justify-center">
         {
           loading ? (

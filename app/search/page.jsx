@@ -1,16 +1,15 @@
 import getSearchResults from "@/lib/getSearchResults";
 import Card from "../components/Card";
-import Link from "next/link";
-import { IoIosArrowBack } from "react-icons/io";
 import Image from "next/image";
+import BackButton from "../components/BackButton";
 
 const SearchPage = async ({ searchParams }) => {
 
   const results = await getSearchResults(searchParams?.q);
 
   return (
-    <div className="min-h-screen pt-16">
-      <Link href="/" className="text-xl m-5 inline-flex items-center hover:text-slate-600 transition-all duration-300"><IoIosArrowBack className="text-2xl"/>Back</Link>
+    <div className="min-h-screen px-2 pt-20">
+      <BackButton />
       <h1 className="text-3xl font-semibold text-center my-5">Search Results</h1>
       <div className="flex flex-wrap items-center justify-center">
       {
