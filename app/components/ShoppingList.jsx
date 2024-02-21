@@ -3,6 +3,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearShoppingList } from '../store/slice';
+import { clearCheckedItems } from '../store/checkboxSlice';
 import ShoppingListItem from './ShoppingListItem';
 import Image from 'next/image';
 
@@ -14,6 +15,7 @@ const IngredientList = () => {
 
   const handleClearList = () => {
     dispatch(clearShoppingList());
+    dispatch(clearCheckedItems());
   }
 
   return (
