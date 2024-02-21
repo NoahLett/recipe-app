@@ -16,6 +16,7 @@ import BackButton from "@/app/components/BackButton";
           <ShoppingListAddButton ingredients={recipe.ingredients} />
           </div>
         <h1 className="text-3xl font-bold my-4 text-slate-600">{recipe.name}</h1>
+        <span className="text-xl font-medium text-slate-600 ml-4">Serving Size: {recipe.servingSize}</span>
         <div className="mt-6 flex items-center justify-center">
           <img
             src={recipe.image_src}
