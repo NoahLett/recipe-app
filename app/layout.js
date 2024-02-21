@@ -5,6 +5,8 @@ import { Poppins } from 'next/font/google';
 import { getServerSession } from 'next-auth';
 import SessionProvider from './components/SessionProvider';
 import { options } from './api/auth/[...nextauth]/options';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -24,6 +26,7 @@ export default async function RootLayout({ children }) {
       <html lang="en">
         <body className={`${poppins.variable} font-sans bg-gradient-to-t from-[#fbc2eb] to-[#a6c1ee]`}>
           <SessionProvider session={session}>
+            <ToastContainer />
             <Navbar />
             {children}
           </SessionProvider>

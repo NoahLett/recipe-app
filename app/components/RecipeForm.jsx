@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { FaRegTrashCan } from "react-icons/fa6";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { useSession } from 'next-auth/react';
+import { toast } from 'react-toastify';
 
 const RecipeForm = () => {
 
@@ -76,17 +77,19 @@ const RecipeForm = () => {
             body: JSON.stringify({ authorName, id, recipeName, ingredients, steps })
         })
         setFormData(initialFormData);
+        toast.success('Recipe Submitted!');
         setSuccess(true);  
     } catch (error) {
-        console.error(error)
+        console.error(error);
+        toast.error('Oops! Something went wrong...');
     }
   };
 
   if (success) {
     return (
-      <div className='flex flex-col items-center'>
-        <h1 className='text-5xl font-semibold mb-4'>Sounds Yummy!</h1>
-        <h4 className='text-lg font-semibold text-center'>You&apos;ll see a pending submission on your Home Page. If you close it, it will reappear once admin approves or declines.</h4>
+      <div className='flex flex-col items-center pt-4'>
+        <h1 className='text-5xl font-semibold text-center mb-4'>Sounds Yummy!</h1>
+        <h4 className='text-lg font-semibold text-center'>You&apos;ll see a pending submission on your Home Page. If you close it, it will reappear once admin approves or declines it.</h4>
       </div>
     )
   } else {
