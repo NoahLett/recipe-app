@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { FaChevronDown } from "react-icons/fa6";
 import { FaChevronUp } from "react-icons/fa6";
 import { IoCloseOutline } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 const AdminSubmissionCard = ({ id, name, author, authorVisible, pending, denied, ingredients, steps }) => {
 
@@ -91,20 +92,22 @@ const AdminSubmissionCard = ({ id, name, author, authorVisible, pending, denied,
 const handleSave = async () => {
   try {
     await Promise.all([handleChangeView(), handleApprovalStatus()]);
+    toast.success('Status Saved!');
   } catch (error) {
     console.error(error);
+    toast.error('Oops! Something went wrong...');
   }
 };
 
   return (
-    <div className="bg-white m-2 p-4 rounded-md shadow-md max-w-[25rem] min-w-[25rem]">
+    <div className="bg-white m-2 p-4 rounded-md shadow-md max-w-[25rem] min-w-[22rem]">
       <div className="flex justify-end">
         <IoCloseOutline className="text-2xl cursor-pointer hover:text-red-500 transition-all duration-150" onClick={handleAdminView} />
       </div>
       <div className="flex justify-between">
         <h2 className="m-0 text-2xl font-semibold">{name}</h2>
       </div>
-      <div className="flex justify-around">
+      <div className="flex justify-between">
         <div className="my-2">
           <div className="flex items-center" onClick={handleToggleIngredients}>
             <p className="text-lg font-medium cursor-pointer">

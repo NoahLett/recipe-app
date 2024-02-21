@@ -117,7 +117,7 @@ const RecipeForm = () => {
                     type="text"
                     value={ingredient}
                     onChange={(e) => handleInputChange(e, index, 'ingredients')}
-                    className={`${index === formData.ingredients.length - 1 && 'border-b-2 border-slate-400'} rounded-none w-full text-lg px-1 outline-none`}
+                    className={`${index === formData.ingredients.length - 1 && index === 0 ? 'border-b-2 border-slate-400' : 'focus:border-b-2 focus:border-slate-400'} rounded-none w-full text-lg px-1 outline-none`}
                     placeholder='E.g. 2 Lbs Chicken Breast'
                   />
                   {index > 0 && (
@@ -134,8 +134,8 @@ const RecipeForm = () => {
               <button 
                 type="button" 
                 onClick={() => handleAddInput('ingredients')}
-                className='self-center'>
-                <IoAddCircleOutline className='text-2xl hover:text-green-400 transition-all duration-150' />
+                className='self-center border border-slate-700 rounded-md hover:border-green-500 transition-all duration-150 px-3 py-1 mt-2'>
+                Add +
               </button>
             </div>
 
@@ -148,7 +148,7 @@ const RecipeForm = () => {
                     type="text"
                     value={step}
                     onChange={(e) => handleInputChange(e, index, 'steps')}
-                    className={`${index === formData.steps.length - 1 && 'border-b-2 border-slate-400'} rounded-none w-full text-lg px-1 outline-none`}
+                    className={`${index === formData.ingredients.length - 1 && index === 0 ? 'border-b-2 border-slate-400' : 'focus:border-b-2 focus:border-slate-400'} rounded-none w-full text-lg px-1 outline-none`}
                     placeholder='E.g. Chop broccoli into florets'
                   />
                   {index > 0 && (
@@ -164,8 +164,8 @@ const RecipeForm = () => {
               <button 
                 type="button" 
                 onClick={() => handleAddInput('steps')}
-                className='pb-2 self-center'>
-                <IoAddCircleOutline className='text-2xl hover:text-green-400 transition-all duration-150' />
+                className='self-center border border-slate-700 rounded-md hover:border-green-500 transition-all duration-150 px-3 py-1 my-2'>
+                Add +
               </button>
             </div>
             

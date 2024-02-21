@@ -18,8 +18,12 @@ const checkboxSlice = createSlice({
       }
       saveCheckedItems(state.checkedItems);
     },
+    clearCheckedItems: (state) => {
+      state.checkedItems = [];
+      saveCheckedItems(state.checkedItems);
+    },
   },
 });
 
-export const { toggleItemCheckbox } = checkboxSlice.actions;
+export const { toggleItemCheckbox, clearCheckedItems } = checkboxSlice.actions;
 export default checkboxSlice.reducer;
