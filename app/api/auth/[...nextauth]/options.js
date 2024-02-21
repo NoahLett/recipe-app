@@ -39,6 +39,12 @@ export const options = {
             clientSecret: process.env.GOOGLE_SECRET,
         }),
     ],
+    theme: {
+        colorScheme: "light", // "auto" | "dark" | "light"
+        brandColor: "E2E8F0", // Hex color code
+        logo: "https://cookscabinet.vercel.app/chef-hat-2.png", // Absolute URL to image
+        buttonText: "000000" // Hex color code
+      },
     callbacks: {
         async jwt({token, user, profile}) {
             if (user) { 
