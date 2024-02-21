@@ -100,7 +100,7 @@ const RecipeForm = () => {
                     type="text"
                     value={formData.recipeName}
                     onChange={(e) => handleInputChange(e, null, 'name')}
-                    className='border-b-2 border-slate-400 w-full text-3xl font-bold px-1 outline-none'
+                    className='focus:border-b-2 focus:border-slate-400 rounded-none w-full text-3xl font-bold px-1 outline-none'
                     placeholder='Recipe Name'
                   />
                 </div>
@@ -108,12 +108,13 @@ const RecipeForm = () => {
             <div className='flex flex-col'>
               <label className='text-lg font-medium mt-5'>Ingredients</label>
               {formData.ingredients.map((ingredient, index) => (
-                <div className='my-2 flex' key={index}>
+                <div className='my-1 flex' key={index}>
+                  <span className='text-lg me-2'>&bull;</span>
                   <input
                     type="text"
                     value={ingredient}
                     onChange={(e) => handleInputChange(e, index, 'ingredients')}
-                    className='border-b-2 border-slate-400 w-full text-lg px-1 outline-none	'
+                    className={`${index === formData.ingredients.length - 1 && 'border-b-2 border-slate-400'} rounded-none w-full text-lg px-1 outline-none`}
                     placeholder='E.g. 2 Lbs Chicken Breast'
                   />
                   {index > 0 && (
@@ -144,8 +145,8 @@ const RecipeForm = () => {
                     type="text"
                     value={step}
                     onChange={(e) => handleInputChange(e, index, 'steps')}
-                    className='border-b-2 border-slate-400 w-full text-lg px-1 outline-none'
-                    placeholder='E.g. Pre-heat your oven to 400&deg; F'
+                    className={`${index === formData.steps.length - 1 && 'border-b-2 border-slate-400'} rounded-none w-full text-lg px-1 outline-none`}
+                    placeholder='E.g. Chop broccoli into florets'
                   />
                   {index > 0 && (
                     <button
