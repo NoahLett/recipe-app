@@ -40,10 +40,10 @@ export const options = {
         }),
     ],
     theme: {
-        colorScheme: "light", // "auto" | "dark" | "light"
-        brandColor: "#f0e2e8", // Hex color code
-        logo: "https://cookscabinet.vercel.app/chef-hat-2.png", // Absolute URL to image
-        buttonText: "000000" // Hex color code
+        colorScheme: "light", 
+        brandColor: "#dfc0cd", 
+        logo: "https://cookscabinet.vercel.app/chef-hat-2.png", 
+        buttonText: "#000000"
       },
     callbacks: {
         async jwt({token, user, profile}) {
