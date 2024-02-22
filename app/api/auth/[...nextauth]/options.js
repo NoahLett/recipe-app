@@ -41,7 +41,7 @@ export const options = {
     ],
     theme: {
         colorScheme: "light", // "auto" | "dark" | "light"
-        brandColor: "E2E8F0", // Hex color code
+        brandColor: "#f0e2e8", // Hex color code
         logo: "https://cookscabinet.vercel.app/chef-hat-2.png", // Absolute URL to image
         buttonText: "000000" // Hex color code
       },
