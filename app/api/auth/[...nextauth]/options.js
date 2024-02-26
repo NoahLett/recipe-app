@@ -1,5 +1,7 @@
 import GithubProvider from "next-auth/providers/github";
-import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
+import prisma from "@/lib/prisma";
+import bcrypt from 'bcrypt';
 
 export const options = {
     providers: [
@@ -20,23 +22,46 @@ export const options = {
             clientId: process.env.GITHUB_ID,
             clientSecret: process.env.GITHUB_SECRET,
         }),
-        GoogleProvider({
-            profile(profile) {
-
-                let userRole = "Google User";
-                if (profile?.email === "kk.rochelle@gmail.com") {
-                    userRole = "admin";
-                }
-
-                return {
-                    ...profile,
-                    id: profile.sub,
-                    role: userRole,
-                    image: profile.picture,
-                };
+        CredentialsProvider({
+            name: 'Credentials',
+            credentials: {
+                username: {
+                    label: 'Username',
+                    type: 'text',
+                    placeholder: 'your-username',
+                },
+                password: {
+                    label: 'Password',
+                    type: 'password',
+                    placeholder: 'your-password',
+                },
             },
-            clientId: process.env.GOOGLE_ID,
-            clientSecret: process.env.GOOGLE_SECRET,
+            async authorize(credentials) {
+                try {
+                    const foundUser = await prisma.user.findUnique({
+                        where: { username: credentials.username }
+                    })
+
+                    if (foundUser) {
+                        const match = await bcrypt.compare(credentials.password, foundUser.password);
+
+                        if (match) {
+                            delete foundUser.password;
+
+                            foundUser["role"] = "Creds User";
+
+                            if (foundUser.username === 'KaitlynWetzel') {
+                                foundUser.role = 'admin';
+                            }
+
+                            return foundUser;
+                        }
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+                return null;
+            }
         }),
     ],
     theme: {
