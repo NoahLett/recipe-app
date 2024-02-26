@@ -18,7 +18,7 @@ export async function POST(req) {
         });
 
         if (duplicate) {
-            return NextResponse.json({message: 'Username alread in use'}, {status: 409});
+            return NextResponse.json({message: 'Username taken'}, {status: 409});
         }
 
         const hashedPassword = await bcrypt.hash(userData.password, 10);

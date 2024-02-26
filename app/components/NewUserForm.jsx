@@ -88,11 +88,11 @@ const NewUserForm = () => {
         <h2 className="mt-5 mb-2 text-center text-4xl font-bold">
             Register to Explore More!
         </h2>
-        <p ref={errRef} className={errMsg ? 'text center bg-red-500 rounded-md text-white' : 'absolute left-[9999px]'}>{errMsg}</p>
         </div>
 
         <div className="mt-7 sm:mx-auto sm:w-full sm:max-w-sm px-5 py-7 rounded-md shadow-md bg-slate-50">
           <form className="space-y-6" onSubmit={handleSubmit} method="POST">
+          <p ref={errRef} className={errMsg ? 'text-center bg-red-500 rounded py-1 text-white' : 'absolute left-[9999px]'}>{errMsg}</p>
             <div>
               <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                 Full Name
