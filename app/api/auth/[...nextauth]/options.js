@@ -64,6 +64,9 @@ export const options = {
             }
         }),
     ],
+    pages: {
+        signIn: '/sign-in'
+    },
     theme: {
         colorScheme: "light", 
         brandColor: "#dfc0cd", 
