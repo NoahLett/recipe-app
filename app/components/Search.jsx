@@ -24,7 +24,7 @@ const Search = () => {
               value={searchQuery}
               onChange={event => setSearchQuery(event.target.value)}
           />
-          <FaSearch onClick={onSearch} className="right-[1rem] absolute text-xl text-slate-400 ml-2" />
+          <FaSearch onClick={onSearch} className="right-[1rem] absolute text-xl text-red-300 ml-2" />
       </div>
     </form>
   )
