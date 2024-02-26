@@ -27,9 +27,8 @@ const Hero = () => {
           <p className='text-sm md:text-xl lg:text-2xl text-white font-medium my-2'>All Our Favs. One Place.</p>
         </div>
       </div>
-      <div className='flex flex-col items-center justify-end mt-3 md:mt-10'>
+      <div className='flex flex-col items-center justify-end my-3 md:mt-10'>
         <Search />
-        <Link className='hover:text-slate-300 transition-all duration-150 my-3 font-medium text-md md:text-lg underline text-white' href='/view-all'>View All</Link>
       </div>
     </div>
     )
