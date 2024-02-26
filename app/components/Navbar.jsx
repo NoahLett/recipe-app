@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { FaShoppingCart } from "react-icons/fa";
 import { IoMenu, IoClose } from "react-icons/io5";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -68,11 +68,6 @@ const Navbar = () => {
                     <li>
                         <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-lg ${pathname === "/faq" ? ACTIVE : INACTIVE}`} href="/faq">FAQ</Link>
                     </li>
-                    { !session?.user &&
-                    <li>
-                        <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-lg ${pathname === "/sign-up" ? ACTIVE : INACTIVE}`} href="/sign-up">Register</Link>
-                    </li>
-}
                     <li>
                         <AuthButton />
                     </li>
@@ -82,8 +77,8 @@ const Navbar = () => {
                 <Link onClick={closeMobileMenu} href="/shoppingList"><FaShoppingCart className="text-3xl cursor-pointer" /></Link>
                 {click ? <IoClose onClick={handleClick} className="text-3xl cursor-pointer lg:hidden"/> : <IoMenu onClick={handleClick} className="text-3xl cursor-pointer lg:hidden"/>}
             </div>
-            </div>
-            </div>
+        </div>
+    </div>
     </header>
   )
 }
