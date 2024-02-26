@@ -4,9 +4,12 @@ import { signIn } from "next-auth/react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import { toast } from "react-toastify"
+import { useSession } from "next-auth/react"
 
 const SignInCredentialsForm = () => {
 
+  const session = useSession();
   const router = useRouter();
   const [error, setError] = useState('');
 
@@ -22,6 +25,7 @@ const SignInCredentialsForm = () => {
     });
 
     if (signInResponse && !signInResponse.error) {
+      toast.info(`Signed in as ${session?.user?.name || data.get('username')}`)
       router.push('/');
     } else {
       console.log('Error: ', signInResponse);
