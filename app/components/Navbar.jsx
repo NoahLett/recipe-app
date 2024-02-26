@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { FaShoppingCart } from "react-icons/fa";
 import { IoMenu, IoClose } from "react-icons/io5";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -19,7 +19,7 @@ function AuthButton() {
     if (session) {
         return (
             <div onClick={signOut} className="flex items-center">
-                <Image className="cursor-pointer mx-2 object-fit rounded-full border-[1px] border-sky-400" priority={true} width={40} height={40} src={session?.user?.image} alt="profile picture" />
+                <Image className="cursor-pointer mx-2 object-fit rounded-full border-[1px] border-sky-400" priority={true} width={40} height={40} src={session?.user?.image || '/chef-hat-2.png'} alt="profile picture" />
                 <span className="mx-1 hover:text-gray-500 cursor-pointer transition-all duration-150 text-xl">{session?.user?.name}</span>
             </div>
         );
@@ -33,6 +33,8 @@ function AuthButton() {
 }
 
 const Navbar = () => {
+
+    const { data: session } = useSession();
 
   const pathname = usePathname();
 
@@ -51,19 +53,26 @@ const Navbar = () => {
             <div className={`nav-links duration-300 lg:static absolute lg:min-h-fit min-h-[100vh] top-14 ${click ? 'right-[0%] max-lg:bg-slate-200' : 'right-[100%]'} justify-center lg:w-auto w-full flex lg:items-center px-5`}
                  onClick={closeMobileMenu}
             >
-                <ul className="flex lg:flex-row flex-col justify-center items-center lg:gap-[2vw] gap-6 mt-5 lg:m-0">
+                <ul className="flex lg:flex-row flex-col justify-center items-center lg:gap-[1rem] gap-6 mt-5 lg:m-0">
                     <li>
-                        <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-xl ${pathname === "/view-all" ? ACTIVE : INACTIVE}`} href="/view-all">All Recipes</Link>
+                        <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-lg ${pathname === "/view-all" ? ACTIVE : INACTIVE}`} href="/view-all">All Recipes</Link>
                     </li>
                     <li>
-                        <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-xl ${pathname === "/add-recipe" ? ACTIVE : INACTIVE}`} href="/add-recipe">Make a Recipe</Link>
+                        <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-lg ${pathname === "/add-recipe" ? ACTIVE : INACTIVE}`} href="/add-recipe">Make a Recipe</Link>
                     </li>
+                    { session?.user?.role === 'admin' &&
                     <li>
-                        <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-xl ${pathname === "/admin" ? ACTIVE : INACTIVE}`} href="/admin">Admin</Link>
+                        <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-lg ${pathname === "/admin" ? ACTIVE : INACTIVE}`} href="/admin">Admin</Link>
                     </li>
+                    }
                     <li>
-                        <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-xl ${pathname === "/faq" ? ACTIVE : INACTIVE}`} href="/faq">FAQ</Link>
+                        <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-lg ${pathname === "/faq" ? ACTIVE : INACTIVE}`} href="/faq">FAQ</Link>
                     </li>
+                    { !session?.user &&
+                    <li>
+                        <Link onClick={closeMobileMenu} className={`hover:text-gray-500 text-2xl lg:text-lg ${pathname === "/sign-up" ? ACTIVE : INACTIVE}`} href="/sign-up">Register</Link>
+                    </li>
+}
                     <li>
                         <AuthButton />
                     </li>
