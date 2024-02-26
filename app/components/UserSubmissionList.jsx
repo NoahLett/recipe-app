@@ -65,8 +65,8 @@ const UserSubmissionList = async () => {
                         <div className="absolute top-[30%] pb-2 w-full">
                             <h3 className='text-white text-center font-semibold text-4xl md:text-5xl lg:text-7xl'>Nothing to See!</h3>
                             <div className="flex justify-evenly mt-[2rem] md:mt-[5rem]">
-                                <Link className="font-medium py-2 px-4 md:py-3 md:px-7 md:text-xl bg-slate-100 rounded-md shadow-lg" href='/add-recipe'>Submit Now</Link>
-                                <Link className="font-medium py-2 px-4 md:py-3 md:px-7 md:text-xl bg-slate-100 rounded-md shadow-lg" href='/faq'>Learn More</Link>
+                                <Link className="font-medium min-w-[130px] py-2 px-4 md:py-3 md:px-7 md:text-xl text-center bg-slate-100 rounded-md shadow-lg" href='/add-recipe'>Submit Now</Link>
+                                <Link className="font-medium min-w-[130px] py-2 px-4 md:py-3 md:px-7 md:text-xl text-center bg-slate-100 rounded-md shadow-lg" href='/view-all'>View All</Link>
                             </div>
                         </div>
                         </div>
@@ -94,8 +94,8 @@ const UserSubmissionList = async () => {
         <div className="absolute top-[30%] pb-2 w-full">
             <h3 className='text-white text-center font-semibold text-4xl md:text-5xl lg:text-7xl'>Share With Us!</h3>
             <div className="flex justify-evenly mt-[2rem] md:mt-[5rem]">
-                <Link className="font-medium py-2 px-4 md:py-3 md:px-7 md:text-xl bg-slate-100 rounded-md shadow-lg" href='/add-recipe'>Submit Now</Link>
-                <Link className="font-medium py-2 px-4 md:py-3 md:px-7 md:text-xl bg-slate-100 rounded-md shadow-lg" href='/faq'>Learn More</Link>
+                <Link className="font-medium min-w-[130px] py-2 px-4 md:py-3 md:px-7 md:text-xl text-center bg-slate-100 rounded-md shadow-lg" href='/add-recipe'>Submit Now</Link>
+                <Link className="font-medium min-w-[130px] py-2 px-4 md:py-3 md:px-7 md:text-xl text-center bg-slate-100 rounded-md shadow-lg" href='/view-all'>View All</Link>
             </div>
         </div>
         </div>
