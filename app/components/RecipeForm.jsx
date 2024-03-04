@@ -104,6 +104,7 @@ const RecipeForm = () => {
                     onChange={(e) => handleInputChange(e, null, 'name')}
                     className='focus:border-b-2 focus:border-slate-400 rounded-none w-full text-3xl font-bold px-1 outline-none'
                     placeholder='Recipe Name'
+                    required
                   />
                 </div>
               </div>
