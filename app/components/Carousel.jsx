@@ -19,7 +19,7 @@ const Carousel = ({ recipes }) => {
         }
     })
 
-    const DRAG_BUFFER = 50;
+    const DRAG_BUFFER = 25;
     const DELAY = 5000;
     const SPRING_OPTIONS = {
         type: 'spring',
